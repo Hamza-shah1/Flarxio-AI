@@ -1,6 +1,14 @@
 [build]
-builder = "NIXPACKS"
+builder = "dockerfile"
 
 [deploy]
-startCommand = "gunicorn main:app"
-restartPolicyType = "ON_FAILURE"
+startCommand = "python main.py"
+healthcheckUrl = "http://localhost:$PORT/"
+healthcheckInterval = 30
+healthcheckTimeout = 10
+restartPolicyMaxRetries = 3
+
+[env]
+PYTHONUNBUFFERED = "1"
+PORT = "8000"
+FLASK_ENV = "production"
