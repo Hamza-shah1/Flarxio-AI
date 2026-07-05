@@ -2068,6 +2068,7 @@ def check_dependencies():
 
 
 try:
+    init_db()
     cleanup_expired_tokens()
     prepare_model()
     check_ffmpeg()
