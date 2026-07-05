@@ -2043,6 +2043,28 @@ def fetch_image_url():
         log.exception("fetch-image-url")
         return jsonify({"error": "Server error while fetching the image"}), 500
 
+# ════════════════════════════════════════════════════════════════════════════
+# PRODUCTION ERROR HANDLERS FOR LINUX MISSING DEPENDENCIES
+# ════════════════════════════════════════════════════════════════════════════
+
+@app.before_request
+def check_dependencies():
+    """Warn users about missing critical dependencies."""
+    if request.path.startswith('/api/') or request.path.startswith('/'):
+        # Check on first request only
+        if not hasattr(app, '_dep_check_done'):
+            missing = []
+            if not TESSERACT_AVAILABLE and request.path in ['/ocr', '/extract-text', '/pdf-to-doc']:
+                missing.append("Tesseract OCR")
+            if not _FFMPEG_AVAILABLE and request.path in ['/voice-to-text', '/reduce-noise']:
+                missing.append("FFmpeg")
+            
+            if missing:
+                log.warning(f"⚠️  Missing dependencies: {', '.join(missing)}")
+            
+            app._dep_check_done = True
+
+
 try:
     cleanup_expired_tokens()
     prepare_model()
