@@ -175,7 +175,9 @@ app.config.update(
 # _CORS_ORIGINS = [o.strip() for o in os.getenv("CORS_ORIGINS", "").split(",") if o.strip()]
 
 # ALLOWED_ORIGINS = [o.strip() for o in os.getenv("CORS_ORIGINS", "").split(",") if o.strip()]
-CORS(app, origins=["http://localhost:5000", "http://127.0.0.1:5000"], supports_credentials=True)
+# CORS(app, origins=["http://localhost:5000", "http://127.0.0.1:5000"], supports_credentials=True)
+CORS_ORIGINS = os.getenv("CORS_ORIGINS", "").split(",")
+CORS(app, origins=[o.strip() for o in CORS_ORIGINS if o.strip()], supports_credentials=True)
 jwt = JWTManager(app)
 mail = Mail(app)
 limiter  = Limiter(get_remote_address, app=app, default_limits=[], storage_uri="memory://")
