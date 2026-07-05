@@ -113,7 +113,7 @@ packaging==23.2
 passlib==1.7.4
 pdf2docx==0.5.8
 pdfreader==0.1.15
-pillow==12.1.1
+pillow
 platformdirs==4.5.1
 pooch==1.8.2
 proto-plus==1.27.0
