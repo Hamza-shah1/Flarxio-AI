@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free AI Object Remover Online – Erase Anything from Photos | Flarixo AI</title>
+  <meta name="description" content="Remove unwanted objects, people, text, or watermarks from photos instantly using AI. Paint over anything and our AI erases it seamlessly — free, no sign-up, no watermark.">
+  <meta name="keywords" content="object remover, remove object from photo, AI object remover, erase object from image, remove people from photo, remove watermark from image, photo object eraser, inpainting tool, remove background objects, AI photo eraser, unwanted object remover online, free object remover">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="Flarixo AI">
+  <link rel="canonical" href="https://flarixo.ai/tools/object-remover">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Flarixo AI">
+  <meta property="og:title" content="Free AI Object Remover Online – Erase Anything from Photos | Flarixo AI">
+  <meta property="og:description" content="Remove unwanted objects, people, text, or watermarks from photos instantly with AI. Paint over anything and it disappears — free, no sign-up.">
+  <meta property="og:url" content="https://flarixo.ai/tools/object-remover">
+  <meta property="og:image" content="https://flarixo.ai/assets/og/object-remover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@flarixoai">
+  <meta name="twitter:title" content="Free AI Object Remover Online | Flarixo AI">
+  <meta name="twitter:description" content="Erase objects, people, text, or watermarks from photos instantly with AI — free, no sign-up, no watermark.">
+  <meta name="twitter:image" content="https://flarixo.ai/assets/og/object-remover.jpg">
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"AI Object Remover","url":"https://flarixo.ai/tools/object-remover","applicationCategory":"PhotographyApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser with JavaScript enabled","description":"Remove unwanted objects, people, text, or watermarks from photos using AI inpainting.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"creator":{"@type":"Organization","name":"Flarixo AI","url":"https://flarixo.ai"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Flarixo AI Object Remover","applicationCategory":"PhotographyApplication","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","ratingCount":"1724","bestRating":"5","worstRating":"1"}}</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --accent: #7C3AED; --accent2: #06B6D4; --accent-glow: rgba(124,58,237,0.18);
+      --bg: #09090f; --bg2: #111118; --bg3: #18181f;
+      --surface: #1f1f2a; --surface2: #252533;
+      --border: rgba(255,255,255,0.08); --border-hover: rgba(124,58,237,0.45);
+      --text: #f0f0f8; --text2: #a0a0b8; --text3: #6b6b84;
+      --radius: 14px; --radius-sm: 8px; --header-h: 68px;
+      --success: #34d399; --error: #f87171;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+
+    /* HEADER */
+    header { position: fixed; top: 0; left: 0; right: 0; height: var(--header-h); background: rgba(9,9,15,0.82); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); z-index: 1000; }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 100%; display: flex; align-items: center; gap: 24px; }
+    .logo { font-family: 'Syne', sans-serif; font-size: 1.55rem; font-weight: 800; letter-spacing: -0.5px; background: linear-gradient(135deg, #a78bfa, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; flex-shrink: 0; text-decoration: none; }
+    nav { display: flex; align-items: center; gap: 4px; flex: 1; justify-content: center; }
+    nav a { color: var(--text2); text-decoration: none; font-size: 0.875rem; font-weight: 500; padding: 7px 14px; border-radius: var(--radius-sm); transition: color 0.2s, background 0.2s; }
+    nav a:hover { color: var(--text); background: var(--surface); }
+    .header-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .btn-login { display: inline-flex; align-items: center; gap: 6px; background: linear-gradient(135deg,#7c3aed,#06b6d4); color: #fff; text-decoration: none; font-size: 0.84rem; font-weight: 600; padding: 9px 18px; border-radius: 9px; transition: opacity 0.2s, transform 0.2s; white-space: nowrap; }
+    .btn-login:hover { opacity: 0.88; transform: translateY(-1px); }
+    .hamburger { display: none; background: none; border: 1px solid var(--border); border-radius: 8px; padding: 8px; cursor: pointer; color: var(--text); align-items: center; justify-content: center; }
+    .mobile-nav { display: none; position: fixed; top: var(--header-h); left: 0; right: 0; background: rgba(9,9,15,0.97); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 16px 24px 24px; z-index: 999; flex-direction: column; gap: 6px; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { color: var(--text2); text-decoration: none; font-size: 1rem; font-weight: 500; padding: 12px 0; border-bottom: 1px solid var(--border); }
+
+    /* HERO */
+    .tool-hero { padding-top: calc(var(--header-h) + 72px); padding-bottom: 48px; text-align: center; position: relative; overflow: hidden; }
+    .hero-orb { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; }
+    .orb1 { width: 400px; height: 400px; background: rgba(124,58,237,0.18); top: -80px; left: -80px; animation: float1 12s ease-in-out infinite; }
+    .orb2 { width: 350px; height: 350px; background: rgba(6,182,212,0.13); bottom: -60px; right: -60px; animation: float2 14s ease-in-out infinite; }
+    @keyframes float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(30px,20px)} }
+    @keyframes float2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-20px,15px)} }
+    .tool-badge { display: inline-flex; align-items: center; gap: 7px; background: rgba(124,58,237,0.12); border: 1px solid rgba(124,58,237,0.35); color: #c4b5fd; font-size: 0.75rem; font-weight: 600; padding: 5px 14px; border-radius: 50px; margin-bottom: 20px; letter-spacing: 0.06em; text-transform: uppercase; }
+    .tool-hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -1.5px; margin-bottom: 16px; line-height: 1.1; }
+    .grad { background: linear-gradient(135deg,#a78bfa,#06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .tool-hero p { max-width: 560px; margin: 0 auto 20px; font-size: 1rem; color: var(--text2); line-height: 1.75; padding: 0 16px; }
+    .hero-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; padding: 0 16px; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 5px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--text3); font-size: 0.73rem; font-weight: 500; padding: 4px 12px; border-radius: 20px; }
+
+    /* STATS */
+    .stats-outer { max-width: 900px; margin: 0 auto 32px; padding: 0 24px; }
+    .stats-bar { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); display: flex; flex-wrap: wrap; overflow: hidden; }
+    .stat-item { flex: 1; min-width: 130px; padding: 20px 24px; text-align: center; border-right: 1px solid var(--border); }
+    .stat-item:last-child { border-right: none; }
+    .stat-num { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg,#a78bfa,#06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .stat-label { font-size: 0.75rem; color: var(--text3); margin-top: 3px; }
+
+    /* TOOL LAYOUT */
+    .tool-layout { max-width: 900px; margin: 0 auto; padding: 0 24px 60px; display: flex; flex-direction: column; gap: 16px; }
+
+    /* MAIN EDITOR CARD */
+    .editor-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+
+    /* TOOLBAR */
+    .toolbar { display: flex; align-items: center; gap: 6px; padding: 12px 16px; border-bottom: 1px solid var(--border); background: var(--bg2); flex-wrap: wrap; }
+    .tool-group { display: flex; gap: 5px; align-items: center; }
+    .tdiv { width: 1px; height: 26px; background: var(--border); margin: 0 3px; flex-shrink: 0; }
+    .tool-btn { display: inline-flex; align-items: center; gap: 5px; padding: 7px 12px; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 600; cursor: pointer; border: 1px solid var(--border); transition: all 0.15s; white-space: nowrap; background: none; color: var(--text2); }
+    .tool-btn:hover { background: rgba(255,255,255,0.05); border-color: var(--border-hover); color: var(--text); }
+    .tool-btn.active { background: rgba(124,58,237,0.15); border-color: rgba(124,58,237,0.5); color: #c4b5fd; }
+    .tool-btn.icon-only { padding: 7px 9px; }
+    .tool-btn.hand-active { background: rgba(6,182,212,0.12); border-color: rgba(6,182,212,0.4); color: #67e8f9; }
+    .btn-process { background: linear-gradient(135deg,#7c3aed,#06b6d4); color: #fff; border: none; font-family: 'Inter', sans-serif; font-size: 0.83rem; font-weight: 700; padding: 8px 18px; border-radius: 9px; cursor: pointer; transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s; box-shadow: 0 0 18px rgba(124,58,237,0.3); white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; }
+    .btn-process:hover:not(:disabled) { opacity: 0.88; transform: translateY(-1px); box-shadow: 0 6px 24px rgba(124,58,237,0.45); }
+    .btn-process:disabled { opacity: 0.35; cursor: not-allowed; transform: none; box-shadow: none; }
+    .brush-ctrl { display: flex; align-items: center; gap: 8px; margin-left: auto; font-size: 0.76rem; color: var(--text2); font-weight: 500; }
+    .brush-ctrl input[type="range"] { -webkit-appearance: none; appearance: none; width: 80px; height: 4px; border-radius: 2px; background: var(--surface2); outline: none; cursor: pointer; }
+    .brush-ctrl input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 13px; height: 13px; border-radius: 50%; background: #a78bfa; cursor: pointer; }
+    .brush-val { font-weight: 700; color: #a78bfa; min-width: 26px; text-align: center; }
+
+    /* ZOOM BAR */
+    .zoom-bar { display: flex; align-items: center; justify-content: space-between; padding: 7px 16px; border-bottom: 1px solid var(--border); background: rgba(9,9,15,0.5); gap: 8px; flex-wrap: wrap; }
+    .zoom-controls { display: flex; align-items: center; gap: 6px; }
+    .zoom-btn { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 7px; font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 700; cursor: pointer; border: 1px solid var(--border); background: none; color: var(--text2); transition: all 0.15s; line-height: 1; }
+    .zoom-btn:hover { background: rgba(255,255,255,0.06); border-color: rgba(124,58,237,0.4); color: var(--text); }
+    .zoom-level { font-size: 0.75rem; font-weight: 700; color: var(--text2); min-width: 42px; text-align: center; font-family: 'Syne', sans-serif; }
+    .btn-reset-zoom { display: inline-flex; align-items: center; gap: 5px; padding: 5px 11px; border-radius: 7px; font-size: 0.73rem; font-weight: 600; cursor: pointer; border: 1px solid var(--border); background: none; color: var(--text3); transition: all 0.15s; white-space: nowrap; }
+    .btn-reset-zoom:hover { background: rgba(255,255,255,0.05); border-color: rgba(124,58,237,0.35); color: var(--text2); }
+    .zoom-hint { font-size: 0.7rem; color: var(--text3); }
+
+    /* CANVAS AREA */
+    .canvas-area {
+      position: relative; min-height: 420px; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      background-color: #0d0d16;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* UPLOAD ZONE */
+    .upload-zone { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; width: 100%; min-height: 420px; cursor: pointer; transition: background 0.2s; }
+    .upload-zone.dragover { background: rgba(124,58,237,0.06); }
+    .upload-icon { width: 64px; height: 64px; border-radius: 16px; background: var(--surface2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; }
+    .upload-zone h3 { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+    .upload-zone p { font-size: 0.82rem; color: var(--text3); }
+    .upload-cta { display: inline-flex; align-items: center; gap: 7px; padding: 10px 22px; background: rgba(124,58,237,0.12); border: 1px solid rgba(124,58,237,0.3); border-radius: 9px; font-size: 0.84rem; font-weight: 600; color: #c4b5fd; transition: background 0.2s; cursor: pointer; }
+    .upload-cta:hover { background: rgba(124,58,237,0.2); }
+
+    /* VIEWPORT + CANVAS WRAPPER */
+    #viewport { position: relative; width: 100%; height: 100%; min-height: 420px; overflow: hidden; display: none; }
+    #cw {
+      position: absolute;
+      transform-origin: 0 0;
+      line-height: 0;
+      /* cursor set dynamically */
+    }
+    #dc { display: block; }
+    #oc { position: absolute; top: 0; left: 0; pointer-events: none; }
+    #mc { display: none; }
+
+    /* Custom cursors via CSS classes */
+    .cursor-brush { cursor: none !important; }
+    .cursor-hand  { cursor: grab !important; }
+    .cursor-hand.dragging { cursor: grabbing !important; }
+
+    /* Brush ring */
+    #brushring { position: fixed; border-radius: 50%; pointer-events: none; transform: translate(-50%,-50%); display: none; z-index: 9998;
+      border: 2px solid rgba(124,58,237,0.9);
+      box-shadow: 0 0 0 1px rgba(124,58,237,0.3), 0 0 10px rgba(124,58,237,0.5);
+      background: rgba(124,58,237,0.08);
+    }
+    #brushring.pen-ring {
+      border-color: rgba(252,211,77,0.9);
+      box-shadow: 0 0 0 1px rgba(252,211,77,0.3), 0 0 10px rgba(252,211,77,0.5);
+      background: rgba(252,211,77,0.06);
+      border-radius: 2px;
+    }
+    #brushring.recover-ring {
+      border-color: rgba(52,211,153,0.9);
+      box-shadow: 0 0 0 1px rgba(52,211,153,0.3), 0 0 10px rgba(52,211,153,0.5);
+      background: rgba(52,211,153,0.06);
+    }
+
+    /* LOADING OVERLAY */
+    .loading-overlay { position: absolute; inset: 0; background: rgba(9,9,15,0.85); backdrop-filter: blur(8px); display: none; align-items: center; justify-content: center; flex-direction: column; gap: 16px; z-index: 20; }
+    .loading-overlay.show { display: flex; }
+    .spinner { width: 40px; height: 40px; border: 2.5px solid var(--border); border-top-color: #a78bfa; border-radius: 50%; animation: spin 0.75s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-text { font-family: 'Syne', sans-serif; font-size: 0.875rem; font-weight: 700; color: var(--text2); }
+    .loading-sub { font-size: 0.75rem; color: var(--text3); margin-top: -8px; }
+
+    /* STATUS BAR */
+    .status-bar { padding: 9px 16px; border-top: 1px solid var(--border); background: var(--bg2); display: flex; align-items: center; gap: 10px; font-size: 0.76rem; color: var(--text3); }
+    .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--text3); flex-shrink: 0; transition: background 0.3s; }
+    .status-dot.ok  { background: #34d399; box-shadow: 0 0 6px rgba(52,211,153,0.4); }
+    .status-dot.go  { background: #f7c948; box-shadow: 0 0 6px rgba(247,201,72,0.4); animation: blink 1s infinite; }
+    .status-dot.err { background: #f87171; box-shadow: 0 0 6px rgba(248,113,113,0.4); }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    /* RESULT PANEL */
+    .result-panel { display: none; border-top: 1px solid var(--border); padding: 22px; }
+    .result-panel.show { display: block; }
+    .result-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+    .result-label { display: flex; align-items: center; gap: 8px; font-family: 'Syne', sans-serif; font-size: 0.84rem; font-weight: 700; color: #a78bfa; }
+    .result-label::before { content: ''; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #a78bfa; box-shadow: 0 0 6px rgba(167,139,250,0.5); animation: blink 2s infinite; }
+    .btn-download { display: inline-flex; align-items: center; gap: 7px; padding: 8px 16px; background: rgba(52,211,153,0.12); border: 1px solid rgba(52,211,153,0.3); color: var(--success); border-radius: 9px; font-family: 'Inter', sans-serif; font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: background 0.2s, transform 0.2s; text-decoration: none; }
+    .btn-download:hover { background: rgba(52,211,153,0.22); transform: translateY(-1px); }
+    #ri { width: 100%; border-radius: 10px; border: 1px solid var(--border); display: block; }
+
+    /* INFO CARD */
+    .info-card { background: rgba(124,58,237,0.06); border: 1px solid rgba(124,58,237,0.2); border-radius: 11px; padding: 14px 18px; font-size: 0.81rem; color: var(--text2); line-height: 1.7; display: none; }
+    .info-card.show { display: block; }
+    .info-card strong { color: var(--text); font-weight: 600; }
+
+    /* HOW IT WORKS & CONTENT */
+    .content-section { max-width: 900px; margin: 0 auto; padding: 0 24px 56px; }
+    .section-heading { font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; }
+    .section-sub { font-size: 0.9rem; color: var(--text2); margin-bottom: 32px; }
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .step-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
+    .step-num { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 900; color: rgba(124,58,237,0.2); line-height: 1; margin-bottom: 10px; }
+    .step-card h3 { font-size: 0.92rem; font-weight: 700; margin-bottom: 6px; }
+    .step-card p { font-size: 0.82rem; color: var(--text2); line-height: 1.6; }
+    .use-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+    .use-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 18px; display: flex; align-items: flex-start; gap: 12px; }
+    .use-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .use-card h3 { font-size: 0.85rem; font-weight: 700; margin-bottom: 3px; }
+    .use-card p { font-size: 0.77rem; color: var(--text2); line-height: 1.5; }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 10px; }
+    .faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .faq-q { width: 100%; background: none; border: none; color: var(--text); font-family: 'Inter', sans-serif; font-size: 0.92rem; font-weight: 600; padding: 18px 22px; text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; transition: background 0.2s; }
+    .faq-q:hover { background: rgba(124,58,237,0.06); }
+    .faq-chevron { flex-shrink: 0; width: 18px; height: 18px; transition: transform 0.25s; color: var(--text3); }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .faq-a-inner { padding: 0 22px 18px; font-size: 0.86rem; color: var(--text2); line-height: 1.75; border-top: 1px solid var(--border); padding-top: 16px; }
+    .faq-item.open .faq-a { max-height: 300px; }
+
+    /* TOAST */
+    .toast { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(30px); background: var(--surface2); border: 1px solid var(--border); color: var(--text); border-radius: 10px; padding: 12px 22px; font-size: 0.88rem; font-weight: 500; opacity: 0; pointer-events: none; transition: opacity 0.3s, transform 0.3s; display: flex; align-items: center; gap: 10px; z-index: 9999; max-width: calc(100vw - 32px); }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .toast.success { border-color: rgba(52,211,153,0.4); }
+    .toast.error { border-color: rgba(248,113,113,0.4); }
+    .toast-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .toast.success .toast-dot { background: #34d399; }
+    .toast.error .toast-dot { background: #f87171; }
+
+    /* FOOTER */
+    footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 28px 24px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-logo { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 800; background: linear-gradient(135deg, #a78bfa, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-decoration: none; }
+    .footer-copy { font-size: 0.8rem; color: var(--text3); }
+    .footer-links { display: flex; gap: 18px; }
+    .footer-links a { font-size: 0.8rem; color: var(--text3); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text2); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .hamburger { display: flex; }
+      .toolbar { gap: 5px; padding: 10px 12px; }
+      .tdiv { display: none; }
+      .brush-ctrl { margin-left: 0; width: 100%; justify-content: space-between; }
+      .brush-ctrl input[type="range"] { flex: 1; max-width: 100px; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; }
+      .content-section { padding-left: 16px; padding-right: 16px; }
+      .header-inner { padding: 0 16px; gap: 16px; }
+      .zoom-hint { display: none; }
+    }
+    @media (max-width: 480px) {
+      .btn-login { padding: 8px 12px; font-size: 0.79rem; }
+      .tool-hero { padding-top: calc(var(--header-h) + 40px); padding-bottom: 32px; }
+      .tool-hero h1 { font-size: 1.9rem; }
+      .tool-layout { padding: 0 14px 60px; }
+      .stat-item { min-width: 110px; }
+      .header-inner { gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo" aria-label="Flarixo AI Home">Flarixo AI</a>
+      <nav aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/tools">Tools</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href="/loginSystem" class="btn-login" id="headerSignIn">Sign In</a>
+        <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('open')" aria-label="Toggle menu">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="/">Home</a>
+    <a href="/tools">Tools</a>
+    <a href="/pricing">Pricing</a>
+    <a href="/contact">Contact</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="tool-hero" aria-labelledby="hero-title">
+    <div class="hero-orb orb1" aria-hidden="true"></div>
+    <div class="hero-orb orb2" aria-hidden="true"></div>
+    <div class="tool-badge" role="text">✦ AI Inpainting Tool</div>
+    <h1 id="hero-title">Remove <span class="grad">Anything</span> from Photos</h1>
+    <p>Paint over unwanted objects, people, text, or watermarks — our AI erases them and fills in the background seamlessly.</p>
+    <div class="hero-tags" aria-label="Use cases">
+      <span class="hero-tag">✓ Remove Objects</span>
+      <span class="hero-tag">✓ Remove People</span>
+      <span class="hero-tag">✓ Remove Text</span>
+      <span class="hero-tag">✓ Remove Watermarks</span>
+      <span class="hero-tag">✓ AI Inpainting</span>
+      <span class="hero-tag">✓ Free Forever</span>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <div class="stats-outer" role="region" aria-label="Tool statistics">
+    <div class="stats-bar">
+      <div class="stat-item"><div class="stat-num">800K+</div><div class="stat-label">Objects erased</div></div>
+      <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Free, no watermark</div></div>
+      <div class="stat-item"><div class="stat-num">AI</div><div class="stat-label">Seamless inpainting</div></div>
+      <div class="stat-item"><div class="stat-num">4.9★</div><div class="stat-label">User rating</div></div>
+    </div>
+  </div>
+
+  <!-- Tool -->
+  <main class="tool-layout" id="tool">
+    <div class="editor-card" role="region" aria-label="Object removal editor">
+
+      <!-- ── TOOLBAR ROW 1 ── -->
+      <div class="toolbar" role="toolbar" aria-label="Drawing tools">
+        <!-- Drawing mode group -->
+        <div class="tool-group">
+          <!-- Brush (erase) -->
+          <button class="tool-btn active" id="eraseBtn" title="Brush – paint area to remove" aria-pressed="true">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 20H7L3 16l10-10 7 7-4 4"/><path d="m6.9 6.9 10.2 10.2"/></svg>
+            Erase
+          </button>
+          <!-- Pen / pencil -->
+          <button class="tool-btn" id="penBtn" title="Pen – fine-detail strokes" aria-pressed="false">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
+            Pen
+          </button>
+          <!-- Recover -->
+          <button class="tool-btn" id="recoverBtn" title="Recover – un-paint area" aria-pressed="false">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+            Recover
+          </button>
+          <!-- Hand / pan -->
+          <button class="tool-btn" id="handBtn" title="Hand – pan the image (Space)" aria-pressed="false">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"/><path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+            Hand
+          </button>
+        </div>
+        <div class="tdiv"></div>
+        <!-- Edit group -->
+        <div class="tool-group">
+          <button class="tool-btn icon-only" id="undoBtn" title="Undo (Ctrl+Z)" aria-label="Undo">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/></svg>
+          </button>
+          <button class="tool-btn icon-only" id="redoBtn" title="Redo (Ctrl+Y)" aria-label="Redo">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 14 5-5-5-5"/><path d="M20 9H9.5a5.5 5.5 0 0 0 0 11H13"/></svg>
+          </button>
+          <button class="tool-btn icon-only" id="clearMaskBtn" title="Clear all strokes" aria-label="Clear selection">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+          </button>
+        </div>
+        <div class="tdiv"></div>
+        <!-- Process -->
+        <button class="btn-process" id="processBtn" disabled aria-label="Remove selected area using AI">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Remove Object
+        </button>
+        <!-- Brush size -->
+        <div class="brush-ctrl" aria-label="Brush size">
+          <span>Size <b class="brush-val" id="bv">30</b></span>
+          <input type="range" id="bsz" min="2" max="150" value="30" aria-label="Brush size">
+        </div>
+      </div>
+
+      <!-- ── ZOOM BAR ── -->
+      <div class="zoom-bar" id="zoomBar" style="display:none">
+        <div class="zoom-controls" aria-label="Zoom controls">
+          <button class="zoom-btn" id="zoomOutBtn" title="Zoom out (−)">−</button>
+          <span class="zoom-level" id="zoomLevel">100%</span>
+          <button class="zoom-btn" id="zoomInBtn" title="Zoom in (+)">+</button>
+          <button class="btn-reset-zoom" id="resetZoomBtn" title="Reset zoom to fit">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 3 3 21"/><path d="M21 3h-7M21 3v7"/><path d="M3 21h7M3 21v-7"/></svg>
+            Fit
+          </button>
+        </div>
+        <span class="zoom-hint">Scroll to zoom · Space+drag to pan</span>
+      </div>
+
+      <!-- ── CANVAS AREA ── -->
+      <div class="canvas-area" id="carea">
+
+        <!-- Upload Zone -->
+        <div class="upload-zone" id="uzone" role="button" tabindex="0" aria-label="Upload image">
+          <div class="upload-icon">🖼️</div>
+          <div style="text-align:center">
+            <h3>Drop your image here</h3>
+            <p>PNG, JPG, WEBP — paint over what you want erased</p>
+          </div>
+          <label class="upload-cta">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17,8 12,3 7,8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            Choose Image
+            <input type="file" id="fi" accept="image/*" style="display:none">
+          </label>
+        </div>
+
+        <!-- Pan/zoom viewport -->
+        <div id="viewport">
+          <div id="cw">
+            <canvas id="dc"></canvas>
+            <canvas id="oc" style="position:absolute;top:0;left:0;pointer-events:none"></canvas>
+            <canvas id="mc" style="display:none"></canvas>
+          </div>
+        </div>
+
+        <!-- Loading overlay -->
+        <div class="loading-overlay" id="loadingOverlay" role="status" aria-live="polite">
+          <div class="spinner"></div>
+          <div class="loading-text">AI is working its magic…</div>
+          <div class="loading-sub">Analyzing and inpainting selected region</div>
+        </div>
+      </div>
+
+      <!-- Result Panel -->
+      <div class="result-panel" id="rp" role="region" aria-label="Processed result">
+        <div class="result-header">
+          <div class="result-label">AI Result</div>
+          <button class="btn-download" id="dlBtn" aria-label="Download result">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download
+          </button>
+        </div>
+        <img id="ri" alt="Object removed result">
+      </div>
+
+      <!-- Status bar -->
+      <div class="status-bar" role="status" aria-live="polite">
+        <div class="status-dot" id="dot"></div>
+        <span id="smsg">Upload an image to get started</span>
+      </div>
+    </div>
+
+    <!-- Tip card -->
+    <div class="info-card" id="tipCard">
+      <strong>Tips for best results:</strong>
+      Use <strong>Erase brush</strong> for large areas, <strong>Pen</strong> for precise fine detail, and <strong>Recover</strong> to un-paint any accidents.
+      Paint generously — include a small border around the object. Results improve with a larger mask that covers the full object plus some background.
+      Zoom in with <kbd style="background:rgba(255,255,255,0.08);padding:1px 5px;border-radius:4px;font-size:0.75rem">+</kbd> for precision work, then <strong>Fit</strong> to see the full image.
+    </div>
+  </main>
+
+  <!-- Brush ring (lives outside canvas to use fixed positioning) -->
+  <div id="brushring" aria-hidden="true"></div>
+
+  <!-- How It Works -->
+  <section class="content-section" aria-labelledby="how-title">
+    <h2 class="section-heading" id="how-title">How to <span class="grad">Remove Objects from Photos</span></h2>
+    <p class="section-sub">Three steps. No Photoshop, no software, no sign-up needed.</p>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">01</div><h3>Upload Your Photo</h3><p>Drag and drop or click to upload your JPG, PNG, or WEBP image. It loads instantly in the canvas editor.</p></div>
+      <div class="step-card"><div class="step-num">02</div><h3>Paint Over the Object</h3><p>Use the Erase brush or Pen tool to paint over the object. Zoom in for precision. Use Recover to fix any accidental strokes.</p></div>
+      <div class="step-card"><div class="step-num">03</div><h3>AI Fills It In</h3><p>Click "Remove Object" and the AI uses deep inpainting to reconstruct the background seamlessly — as if the object never existed.</p></div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="content-section" aria-labelledby="use-title">
+    <h2 class="section-heading" id="use-title">What Can You <span class="grad">Erase?</span></h2>
+    <p class="section-sub">AI inpainting works on virtually anything in a photo.</p>
+    <div class="use-grid">
+      <div class="use-card"><div class="use-icon">🧍</div><div><h3>Remove People from Photos</h3><p>Erase strangers or photobombers from travel, event, or landscape shots instantly.</p></div></div>
+      <div class="use-card"><div class="use-icon">🚗</div><div><h3>Remove Objects &amp; Clutter</h3><p>Erase cars, signs, power lines, trash, furniture, or any unwanted object from the frame.</p></div></div>
+      <div class="use-card"><div class="use-icon">🔤</div><div><h3>Remove Text &amp; Watermarks</h3><p>Clean up overlaid text, date stamps, captions, or logos from images.</p></div></div>
+      <div class="use-card"><div class="use-icon">🏠</div><div><h3>Real Estate Photo Cleanup</h3><p>Remove furniture, cars in driveways, or debris from property listing photos.</p></div></div>
+      <div class="use-card"><div class="use-icon">🛍️</div><div><h3>Product Photo Editing</h3><p>Erase props, shadows, price tags, or background distractions from product shots.</p></div></div>
+      <div class="use-card"><div class="use-icon">📸</div><div><h3>Portrait Retouching</h3><p>Remove blemishes, stray objects, or distracting elements from portrait backgrounds.</p></div></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="content-section" aria-labelledby="faq-title">
+    <h2 class="section-heading" id="faq-title">Frequently Asked <span class="grad">Questions</span></h2>
+    <p class="section-sub">Everything you need to know about Flarixo AI's object remover.</p>
+    <div class="faq-list" role="list">
+      <div class="faq-item" role="listitem"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">How does the AI object remover work?<svg class="faq-chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-a"><div class="faq-a-inner">Upload your photo, paint over the object using the brush or pen tool, then click Remove Object. The AI uses deep learning inpainting to fill in the selected area with a natural-looking background — as if the object was never there.</div></div></div>
+      <div class="faq-item" role="listitem"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">What's the difference between Erase brush and Pen tool?<svg class="faq-chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-a"><div class="faq-a-inner">The Erase brush uses a soft, round tip for quickly covering large areas with smooth, feathered edges. The Pen tool uses a hard, square tip for sharp, precise detail work — ideal for edges, text, and thin objects like wires or poles.</div></div></div>
+      <div class="faq-item" role="listitem"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Is the object remover free?<svg class="faq-chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-a"><div class="faq-a-inner">Yes, 100% free. No sign-up, no credit card, and no watermark on the downloaded image.</div></div></div>
+      <div class="faq-item" role="listitem"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Can I remove a person from a photo?<svg class="faq-chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-a"><div class="faq-a-inner">Yes. Paint over the person and click Remove Object. The AI reconstructs the background behind them. Results are best when the background is relatively uniform — sky, grass, walls, water, etc.</div></div></div>
+      <div class="faq-item" role="listitem"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">How do I zoom and pan the image?<svg class="faq-chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-a"><div class="faq-a-inner">Use the + / − buttons in the zoom bar, or scroll your mouse wheel over the canvas. To pan, click the Hand tool (or hold Space) and drag the image. Click "Fit" or the reset button to return to the fitted view. On mobile, use two-finger pinch to zoom and drag to pan.</div></div></div>
+      <div class="faq-item" role="listitem"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">What is the difference between Erase and Recover modes?<svg class="faq-chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-a"><div class="faq-a-inner">Erase marks areas to be removed by the AI. Recover un-marks areas you accidentally painted. Use both together to refine your selection before clicking Remove Object. You can also undo strokes with Ctrl+Z.</div></div></div>
+      <div class="faq-item" role="listitem"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">What image formats are supported?<svg class="faq-chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-a"><div class="faq-a-inner">You can upload PNG, JPG (JPEG), and WEBP images. The output is a high-quality PNG file.</div></div></div>
+      <div class="faq-item" role="listitem"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Are my photos kept private?<svg class="faq-chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-a"><div class="faq-a-inner">Yes. Uploaded images and masks are processed securely and deleted from our servers immediately after processing. We never store or share your files.</div></div></div>
+    </div>
+  </section>
+
+  <!-- Toast -->
+  <div class="toast" id="globalToast" role="alert" aria-live="assertive">
+    <span class="toast-dot"></span>
+    <span id="globalToastMsg"></span>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <a href="/" class="footer-logo">Flarixo AI</a>
+      <p class="footer-copy">© 2025 Flarixo AI. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/tools">Tools</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  // ─────────────────────────────────────────────────────────────
+  //  ELEMENTS
+  // ─────────────────────────────────────────────────────────────
+  const fi           = document.getElementById('fi');
+  const carea        = document.getElementById('carea');
+  const uzone        = document.getElementById('uzone');
+  const viewport     = document.getElementById('viewport');
+  const cw           = document.getElementById('cw');
+  const dc           = document.getElementById('dc');
+  const oc           = document.getElementById('oc');
+  const mc           = document.getElementById('mc');
+  const ring         = document.getElementById('brushring');
+  const bsz          = document.getElementById('bsz');
+  const bv           = document.getElementById('bv');
+  const eraseBtn     = document.getElementById('eraseBtn');
+  const penBtn       = document.getElementById('penBtn');
+  const recBtn       = document.getElementById('recoverBtn');
+  const handBtn      = document.getElementById('handBtn');
+  const undoBtn      = document.getElementById('undoBtn');
+  const redoBtn      = document.getElementById('redoBtn');
+  const clearMaskBtn = document.getElementById('clearMaskBtn');
+  const processBtn   = document.getElementById('processBtn');
+  const loadingOverlay = document.getElementById('loadingOverlay');
+  const rp           = document.getElementById('rp');
+  const ri           = document.getElementById('ri');
+  const dlBtn        = document.getElementById('dlBtn');
+  const dot          = document.getElementById('dot');
+  const smsg         = document.getElementById('smsg');
+  const tipCard      = document.getElementById('tipCard');
+  const globalToast  = document.getElementById('globalToast');
+  const globalToastMsg = document.getElementById('globalToastMsg');
+  const zoomBar      = document.getElementById('zoomBar');
+  const zoomInBtn    = document.getElementById('zoomInBtn');
+  const zoomOutBtn   = document.getElementById('zoomOutBtn');
+  const resetZoomBtn = document.getElementById('resetZoomBtn');
+  const zoomLevel    = document.getElementById('zoomLevel');
+
+  const dCtx = dc.getContext('2d');
+  const oCtx = oc.getContext('2d');
+  const mCtx = mc.getContext('2d');
+
+  const FRONTEND_URL = "";
+
+  // ─────────────────────────────────────────────────────────────
+  //  STATE
+  // ─────────────────────────────────────────────────────────────
+  let srcImg  = null, srcFile = null;
+  let brushPx = 30;
+  // modes: 'erase' | 'pen' | 'recover' | 'hand'
+  let activeMode = 'erase';
+  let painting   = false;
+  let history    = [], redos = [];
+
+  // Zoom / pan state
+  let scale = 1, panX = 0, panY = 0;
+  let isPanning = false, panStartX = 0, panStartY = 0, panOriginX = 0, panOriginY = 0;
+  let spaceHeld = false;
+  // Touch zoom state
+  let lastTouchDist = null;
+  let lastTouchMid  = null;
+
+  const ZOOM_MIN = 0.1, ZOOM_MAX = 12;
+  const ZOOM_STEPS = [0.1,0.2,0.33,0.5,0.67,0.75,1,1.25,1.5,2,3,4,6,8,12];
+
+  // ─────────────────────────────────────────────────────────────
+  //  TOAST / STATUS
+  // ─────────────────────────────────────────────────────────────
+  let toastTimer;
+  function showToast(msg, type = 'success') {
+    clearTimeout(toastTimer);
+    globalToastMsg.textContent = msg;
+    globalToast.classList.remove('success','error');
+    globalToast.classList.add(type, 'show');
+    toastTimer = setTimeout(() => globalToast.classList.remove('show'), 3400);
+  }
+  function setStatus(msg, t = '') {
+    smsg.textContent = msg;
+    dot.className = 'status-dot' + (t ? ' ' + t : '');
+  }
+
+  // ─────────────────────────────────────────────────────────────
+  //  ZOOM / PAN
+  // ─────────────────────────────────────────────────────────────
+  function applyTransform() {
+    cw.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`;
+    zoomLevel.textContent = Math.round(scale * 100) + '%';
+  }
+
+  function fitToView() {
+    if (!srcImg) return;
+    const vw = viewport.clientWidth  || carea.clientWidth;
+    const vh = viewport.clientHeight || 480;
+    const sw = vw  / dc.width;
+    const sh = vh  / dc.height;
+    scale = Math.min(sw, sh, 1);   // never upscale beyond 100% on fit
+    panX  = (vw  - dc.width  * scale) / 2;
+    panY  = (vh  - dc.height * scale) / 2;
+    applyTransform();
+  }
+
+  function zoomAt(newScale, pivotVX, pivotVY) {
+    newScale = Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, newScale));
+    // pivot in canvas space
+    const cx = (pivotVX - panX) / scale;
+    const cy = (pivotVY - panY) / scale;
+    scale = newScale;
+    panX  = pivotVX - cx * scale;
+    panY  = pivotVY - cy * scale;
+    applyTransform();
+  }
+
+  function stepZoom(dir) { // dir: +1 or -1
+    const vw = viewport.clientWidth  || carea.clientWidth;
+    const vh = viewport.clientHeight || 480;
+    let s = dir > 0
+      ? ZOOM_STEPS.find(s => s > scale + 0.001) || ZOOM_MAX
+      : [...ZOOM_STEPS].reverse().find(s => s < scale - 0.001) || ZOOM_MIN;
+    zoomAt(s, vw / 2, vh / 2);
+  }
+
+  zoomInBtn.addEventListener('click',  () => stepZoom(+1));
+  zoomOutBtn.addEventListener('click', () => stepZoom(-1));
+  resetZoomBtn.addEventListener('click', fitToView);
+
+  // Mouse wheel zoom
+  viewport.addEventListener('wheel', e => {
+    e.preventDefault();
+    const r    = viewport.getBoundingClientRect();
+    const pvX  = e.clientX - r.left;
+    const pvY  = e.clientY - r.top;
+    const delta = e.deltaY < 0 ? 1.12 : 1 / 1.12;
+    zoomAt(scale * delta, pvX, pvY);
+  }, { passive: false });
+
+  // ─────────────────────────────────────────────────────────────
+  //  CURSOR MANAGEMENT
+  // ─────────────────────────────────────────────────────────────
+  function isHandMode() { return activeMode === 'hand' || spaceHeld; }
+
+  function updateCursor() {
+    viewport.classList.remove('cursor-brush','cursor-hand','dragging');
+    if (isHandMode()) {
+      viewport.classList.add('cursor-hand');
+      if (isPanning) viewport.classList.add('dragging');
+      ring.style.display = 'none';
+    } else {
+      viewport.classList.add('cursor-brush');
+    }
+  }
+
+  // ─────────────────────────────────────────────────────────────
+  //  COORDINATE HELPERS
+  // ─────────────────────────────────────────────────────────────
+  function viewportToCanvas(clientX, clientY) {
+    const r  = viewport.getBoundingClientRect();
+    const vx = clientX - r.left;
+    const vy = clientY - r.top;
+    const cx = (vx - panX) / scale;
+    const cy = (vy - panY) / scale;
+    return { cx, cy };                  // canvas-space coords (fractional)
+  }
+
+  function clientToViewport(clientX, clientY) {
+    const r = viewport.getBoundingClientRect();
+    return { vx: clientX - r.left, vy: clientY - r.top };
+  }
+
+  // ─────────────────────────────────────────────────────────────
+  //  BRUSH RING
+  // ─────────────────────────────────────────────────────────────
+  function showRing(clientX, clientY) {
+    const screenR = brushPx * scale;   // radius in screen pixels
+    ring.style.display = 'block';
+    ring.style.left    = clientX + 'px';
+    ring.style.top     = clientY  + 'px';
+    ring.style.width   = ring.style.height = (screenR * 2) + 'px';
+    // shape / colour by mode
+    ring.className = '';
+    if (activeMode === 'pen')     ring.classList.add('pen-ring');
+    else if (activeMode === 'recover') ring.classList.add('recover-ring');
+  }
+
+  // ─────────────────────────────────────────────────────────────
+  //  DRAWING
+  // ─────────────────────────────────────────────────────────────
+  function drawAt(cx, cy) {
+    const r = brushPx;
+
+    if (activeMode === 'erase') {
+      // Soft round brush — overlay
+      const grad = oCtx.createRadialGradient(cx, cy, 0, cx, cy, r);
+      grad.addColorStop(0,   'rgba(124,58,237,0.55)');
+      grad.addColorStop(0.6, 'rgba(124,58,237,0.40)');
+      grad.addColorStop(1,   'rgba(124,58,237,0)');
+      oCtx.globalCompositeOperation = 'source-over';
+      oCtx.fillStyle = grad;
+      oCtx.beginPath(); oCtx.arc(cx, cy, r, 0, Math.PI * 2); oCtx.fill();
+      // mask: solid white circle (soft feather to help inpainting)
+      const mg = mCtx.createRadialGradient(cx, cy, 0, cx, cy, r);
+      mg.addColorStop(0.7, 'rgba(255,255,255,1)');
+      mg.addColorStop(1,   'rgba(255,255,255,0)');
+      mCtx.fillStyle = mg;
+      mCtx.beginPath(); mCtx.arc(cx, cy, r, 0, Math.PI * 2); mCtx.fill();
+
+    } else if (activeMode === 'pen') {
+      // Hard square/round tip for precision
+      const half = r;
+      oCtx.globalCompositeOperation = 'source-over';
+      oCtx.fillStyle = 'rgba(252,211,77,0.6)';
+      oCtx.fillRect(cx - half * 0.6, cy - half * 0.6, half * 1.2, half * 1.2);
+      // mask: crisp solid
+      mCtx.fillStyle = '#ffffff';
+      mCtx.fillRect(cx - half * 0.6, cy - half * 0.6, half * 1.2, half * 1.2);
+
+    } else if (activeMode === 'recover') {
+      oCtx.globalCompositeOperation = 'destination-out';
+      oCtx.fillStyle = 'rgba(0,0,0,1)';
+      oCtx.beginPath(); oCtx.arc(cx, cy, r, 0, Math.PI * 2); oCtx.fill();
+      oCtx.globalCompositeOperation = 'source-over';
+      // mask: erase back to black
+      mCtx.fillStyle = '#000000';
+      mCtx.beginPath(); mCtx.arc(cx, cy, r, 0, Math.PI * 2); mCtx.fill();
+    }
+  }
+
+  // ─────────────────────────────────────────────────────────────
+  //  HISTORY
+  // ─────────────────────────────────────────────────────────────
+  function saveHistory() {
+    history.push({
+      mask:    mCtx.getImageData(0, 0, mc.width, mc.height),
+      overlay: oCtx.getImageData(0, 0, oc.width, oc.height)
+    });
+    if (history.length > 60) history.shift();
+    redos = [];
+  }
+
+  // ─────────────────────────────────────────────────────────────
+  //  MOUSE EVENTS
+  // ─────────────────────────────────────────────────────────────
+  viewport.addEventListener('mousedown', e => {
+    if (!srcImg) return;
+    if (isHandMode()) {
+      isPanning = true; updateCursor();
+      const {vx, vy} = clientToViewport(e.clientX, e.clientY);
+      panStartX = vx; panStartY = vy;
+      panOriginX = panX; panOriginY = panY;
+    } else {
+      e.preventDefault();
+      painting = true;
+      saveHistory();
+      const {cx, cy} = viewportToCanvas(e.clientX, e.clientY);
+      drawAt(cx, cy);
+    }
+  });
+
+  window.addEventListener('mousemove', e => {
+    if (!srcImg) return;
+    if (isPanning) {
+      const {vx, vy} = clientToViewport(e.clientX, e.clientY);
+      panX = panOriginX + (vx - panStartX);
+      panY = panOriginY + (vy - panStartY);
+      applyTransform();
+      return;
+    }
+    if (!isHandMode()) {
+      showRing(e.clientX, e.clientY);
+      if (painting) {
+        const {cx, cy} = viewportToCanvas(e.clientX, e.clientY);
+        drawAt(cx, cy);
+      }
+    }
+  });
+
+  window.addEventListener('mouseup', () => {
+    painting  = false;
+    isPanning = false;
+    updateCursor();
+  });
+
+  viewport.addEventListener('mouseleave', () => {
+    ring.style.display = 'none';
+  });
+
+  viewport.addEventListener('mouseenter', e => {
+    if (!srcImg || isHandMode()) return;
+    showRing(e.clientX, e.clientY);
+  });
+
+  // ─────────────────────────────────────────────────────────────
+  //  TOUCH EVENTS (drawing + pinch-zoom + pan)
+  // ─────────────────────────────────────────────────────────────
+  viewport.addEventListener('touchstart', e => {
+    if (!srcImg) return;
+    e.preventDefault();
+    if (e.touches.length === 2) {
+      // Start pinch
+      lastTouchDist = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      lastTouchMid = {
+        x: (e.touches[0].clientX + e.touches[1].clientX) / 2,
+        y: (e.touches[0].clientY + e.touches[1].clientY) / 2
+      };
+      painting = false;
+    } else if (e.touches.length === 1) {
+      if (isHandMode()) {
+        isPanning = true;
+        const {vx,vy} = clientToViewport(e.touches[0].clientX, e.touches[0].clientY);
+        panStartX = vx; panStartY = vy; panOriginX = panX; panOriginY = panY;
+      } else {
+        painting = true;
+        saveHistory();
+        const {cx,cy} = viewportToCanvas(e.touches[0].clientX, e.touches[0].clientY);
+        drawAt(cx, cy);
+      }
+    }
+  }, { passive: false });
+
+  viewport.addEventListener('touchmove', e => {
+    if (!srcImg) return;
+    e.preventDefault();
+    if (e.touches.length === 2) {
+      painting = false;
+      const d = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      const mid = {
+        x: (e.touches[0].clientX + e.touches[1].clientX) / 2,
+        y: (e.touches[0].clientY + e.touches[1].clientY) / 2
+      };
+      const r = viewport.getBoundingClientRect();
+      if (lastTouchDist && d > 0) {
+        const ratio = d / lastTouchDist;
+        zoomAt(scale * ratio, mid.x - r.left, mid.y - r.top);
+      }
+      lastTouchDist = d;
+      lastTouchMid  = mid;
+    } else if (e.touches.length === 1) {
+      if (isPanning) {
+        const {vx,vy} = clientToViewport(e.touches[0].clientX, e.touches[0].clientY);
+        panX = panOriginX + (vx - panStartX);
+        panY = panOriginY + (vy - panStartY);
+        applyTransform();
+      } else if (painting) {
+        const {cx,cy} = viewportToCanvas(e.touches[0].clientX, e.touches[0].clientY);
+        drawAt(cx, cy);
+      }
+    }
+  }, { passive: false });
+
+  viewport.addEventListener('touchend', () => {
+    painting = false; isPanning = false; lastTouchDist = null;
+  });
+
+  // ─────────────────────────────────────────────────────────────
+  //  KEYBOARD SHORTCUTS
+  // ─────────────────────────────────────────────────────────────
+  document.addEventListener('keydown', e => {
+    if (e.key === ' ' && !e.repeat && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
+      e.preventDefault(); spaceHeld = true; updateCursor();
+    }
+    if (e.ctrlKey && !e.shiftKey && e.key === 'z') { e.preventDefault(); undoBtn.click(); }
+    if (e.ctrlKey && (e.key === 'y' || (e.shiftKey && e.key === 'Z'))) { e.preventDefault(); redoBtn.click(); }
+    if (e.key === '+' || e.key === '=') stepZoom(+1);
+    if (e.key === '-')                  stepZoom(-1);
+    if (e.key === '0')                  fitToView();
+    // Tool shortcuts
+    if (!e.ctrlKey && !e.altKey && !e.metaKey) {
+      if (e.key === 'b' || e.key === 'B') eraseBtn.click();
+      if (e.key === 'p' || e.key === 'P') penBtn.click();
+      if (e.key === 'r' || e.key === 'R') recBtn.click();
+      if (e.key === 'h' || e.key === 'H') handBtn.click();
+    }
+  });
+  document.addEventListener('keyup', e => {
+    if (e.key === ' ') { spaceHeld = false; updateCursor(); }
+  });
+
+  // ─────────────────────────────────────────────────────────────
+  //  TOOL BUTTONS
+  // ─────────────────────────────────────────────────────────────
+  const allDrawBtns = [eraseBtn, penBtn, recBtn, handBtn];
+
+  function activateTool(btn, mode) {
+    allDrawBtns.forEach(b => { b.classList.remove('active','hand-active'); b.setAttribute('aria-pressed','false'); });
+    if (mode === 'hand') { btn.classList.add('hand-active'); }
+    else                 { btn.classList.add('active'); }
+    btn.setAttribute('aria-pressed','true');
+    activeMode = mode;
+    updateCursor();
+  }
+
+  eraseBtn.addEventListener('click',   () => activateTool(eraseBtn,   'erase'));
+  penBtn.addEventListener('click',     () => activateTool(penBtn,     'pen'));
+  recBtn.addEventListener('click',     () => activateTool(recBtn,     'recover'));
+  handBtn.addEventListener('click',    () => activateTool(handBtn,    'hand'));
+
+  bsz.addEventListener('input', () => { brushPx = +bsz.value; bv.textContent = brushPx; });
+
+  undoBtn.addEventListener('click', () => {
+    if (!history.length) return;
+    redos.push({ mask: mCtx.getImageData(0,0,mc.width,mc.height), overlay: oCtx.getImageData(0,0,oc.width,oc.height) });
+    const s = history.pop(); mCtx.putImageData(s.mask,0,0); oCtx.putImageData(s.overlay,0,0);
+    setStatus('Undone','ok');
+  });
+
+  redoBtn.addEventListener('click', () => {
+    if (!redos.length) return;
+    history.push({ mask: mCtx.getImageData(0,0,mc.width,mc.height), overlay: oCtx.getImageData(0,0,oc.width,oc.height) });
+    const s = redos.pop(); mCtx.putImageData(s.mask,0,0); oCtx.putImageData(s.overlay,0,0);
+    setStatus('Redone','ok');
+  });
+
+  clearMaskBtn.addEventListener('click', () => {
+    if (!srcImg) return;
+    saveHistory();
+    oCtx.clearRect(0,0,oc.width,oc.height);
+    mCtx.fillStyle = '#000'; mCtx.fillRect(0,0,mc.width,mc.height);
+    setStatus('Mask cleared','ok');
+  });
+
+  // ─────────────────────────────────────────────────────────────
+  //  IMAGE LOADING
+  // ─────────────────────────────────────────────────────────────
+  function loadImg(file) {
+    srcFile = file;
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => {
+      srcImg = img; URL.revokeObjectURL(url);
+      const W = img.naturalWidth, H = img.naturalHeight;
+      [dc, oc, mc].forEach(c => { c.width = W; c.height = H; });
+      dCtx.drawImage(img, 0, 0);
+      oCtx.clearRect(0, 0, W, H);
+      mCtx.fillStyle = '#000'; mCtx.fillRect(0, 0, W, H);
+      history = []; redos = [];
+      // show canvas
+      uzone.style.display  = 'none';
+      viewport.style.display = 'block';
+      zoomBar.style.display  = 'flex';
+      processBtn.disabled    = false;
+      tipCard.classList.add('show');
+      // fit to viewport
+      requestAnimationFrame(() => { fitToView(); applyTransform(); });
+      setStatus(`Loaded ${W}×${H} — paint over what you want to remove`, 'ok');
+      showToast('Image loaded! Paint over the area to remove.', 'success');
+    };
+    img.onerror = () => { setStatus('Failed to load image','err'); showToast('Could not load that image.','error'); };
+    img.src = url;
+  }
+
+  fi.addEventListener('change', () => fi.files[0] && loadImg(fi.files[0]));
+  carea.addEventListener('dragover', e => { e.preventDefault(); uzone.classList.add('dragover'); });
+  carea.addEventListener('dragleave', () => uzone.classList.remove('dragover'));
+  carea.addEventListener('drop', e => {
+    e.preventDefault(); uzone.classList.remove('dragover');
+    const f = e.dataTransfer.files[0];
+    if (f && f.type.startsWith('image/')) loadImg(f);
+  });
+  uzone.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') fi.click(); });
+
+  // ─────────────────────────────────────────────────────────────
+  //  PROCESS (INPAINTING)
+  // ─────────────────────────────────────────────────────────────
+  processBtn.addEventListener('click', async () => {
+    if (!srcFile || !srcImg) return;
+
+    // Dilate the mask slightly for better inpainting coverage
+    const W = mc.width, H = mc.height;
+    const raw = mCtx.getImageData(0, 0, W, H);
+    const dilated = dilateMask(raw, 8);  // 8px dilation
+    mCtx.putImageData(dilated, 0, 0);
+
+    const px = dilated.data;
+    let whitePx = 0;
+    for (let i = 0; i < px.length; i += 4) if (px[i] > 128) whitePx++;
+    if (whitePx === 0) {
+      setStatus('Nothing painted — brush over the object first','err');
+      showToast('Paint over the object first.','error');
+      return;
+    }
+    if (whitePx < 80) {
+      setStatus('Selection too small — paint a larger area','err');
+      showToast('Selection too small — paint more area.','error');
+      return;
+    }
+
+    loadingOverlay.classList.add('show');
+    setStatus('Sending to AI…','go');
+    processBtn.disabled = true;
+
+    try {
+      const fd = new FormData();
+      fd.append('image', srcFile);
+      // Export the dilated mask as PNG
+      const maskBlob = await new Promise((res, rej) => mc.toBlob(b => b ? res(b) : rej(new Error('mask export failed')), 'image/png'));
+      fd.append('mask', maskBlob, 'mask.png');
+
+      const resp = await fetch(`${FRONTEND_URL}/remove-object`, { method: 'POST', body: fd });
+      if (!resp.ok) {
+        let msg = `Server error ${resp.status}`;
+        try { const j = await resp.json(); if (j.error) msg = j.error; } catch(_) {}
+        throw new Error(msg);
+      }
+      const blob = await resp.blob();
+      if (ri._objUrl) URL.revokeObjectURL(ri._objUrl);
+      ri._objUrl = URL.createObjectURL(blob);
+      ri.src = ri._objUrl;
+      rp.classList.add('show');
+      rp.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      setStatus(`Done! ${whitePx.toLocaleString()} pixels removed`, 'ok');
+      showToast('Object removed! Click Download to save.', 'success');
+    } catch (err) {
+      // restore original mask on error
+      mCtx.putImageData(raw, 0, 0);
+      const msg = err.message.includes('Failed to fetch')
+        ? 'Cannot reach server — check your connection.'
+        : 'Error: ' + err.message;
+      setStatus(msg,'err');
+      showToast(msg,'error');
+    } finally {
+      loadingOverlay.classList.remove('show');
+      processBtn.disabled = false;
+    }
+  });
+
+  // ─────────────────────────────────────────────────────────────
+  //  MASK DILATION  (expands white region by `radius` pixels)
+  //  Helps inpainting APIs produce better results by ensuring
+  //  the full object boundary is covered.
+  // ─────────────────────────────────────────────────────────────
+  function dilateMask(imgData, radius) {
+    const W = imgData.width, H = imgData.height;
+    const src = imgData.data;
+    const out  = new Uint8ClampedArray(src);
+
+    for (let y = 0; y < H; y++) {
+      for (let x = 0; x < W; x++) {
+        if (src[(y * W + x) * 4] > 128) continue; // already white
+        let found = false;
+        const x0 = Math.max(0, x - radius), x1 = Math.min(W-1, x + radius);
+        const y0 = Math.max(0, y - radius), y1 = Math.min(H-1, y + radius);
+        outer: for (let ny = y0; ny <= y1 && !found; ny++) {
+          for (let nx = x0; nx <= x1; nx++) {
+            if ((ny-y)*(ny-y) + (nx-x)*(nx-x) <= radius*radius) {
+              if (src[(ny * W + nx) * 4] > 128) { found = true; break outer; }
+            }
+          }
+        }
+        if (found) { const i = (y*W+x)*4; out[i]=out[i+1]=out[i+2]=out[i+3]=255; }
+      }
+    }
+    return new ImageData(out, W, H);
+  }
+
+  // ─────────────────────────────────────────────────────────────
+  //  DOWNLOAD
+  // ─────────────────────────────────────────────────────────────
+  dlBtn.addEventListener('click', () => {
+    if (!ri.src || ri.src === location.href) return;
+    const a = document.createElement('a');
+    a.href = ri.src; a.download = 'flarixo-object-removed.png'; a.click();
+  });
+
+  // ─────────────────────────────────────────────────────────────
+  //  FAQ ACCORDION
+  // ─────────────────────────────────────────────────────────────
+  function toggleFaq(btn) {
+    const item   = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-q').setAttribute('aria-expanded','false');
+    });
+    if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+  }
+  </script>
+  <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+</body>
+</html>

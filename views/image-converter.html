@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Converter – JPG, PNG, WEBP, BMP, TIFF Online Free | Flarixo AI</title>
+  <meta name="description" content="Free online image converter. Convert JPG to PNG, PNG to WEBP, BMP, TIFF and more in seconds. Fast, secure, batch image format conversion — no signup required.">
+  <meta name="keywords" content="image converter, convert jpg to png, png to webp converter, online image converter, free image format converter, batch image converter, convert images online">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Flarixo AI">
+  <link rel="canonical" href="https://flarixo.ai/tools/image-converter">
+
+  <!-- Open Graph / Social sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Free Online Image Converter – JPG, PNG, WEBP, BMP, TIFF | Flarixo AI">
+  <meta property="og:description" content="Convert images between JPG, PNG, WEBP, BMP, and TIFF instantly. Free, fast, and supports batch conversion.">
+  <meta property="og:url" content="https://flarixo.ai/tools/image-converter">
+  <meta property="og:site_name" content="Flarixo AI">
+  <meta property="og:image" content="https://flarixo.ai/static/og/image-converter-og.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Online Image Converter – JPG, PNG, WEBP, BMP, TIFF">
+  <meta name="twitter:description" content="Convert images between JPG, PNG, WEBP, BMP, and TIFF instantly. Free, fast, and supports batch conversion.">
+  <meta name="twitter:image" content="https://flarixo.ai/static/og/image-converter-og.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Structured data: helps Google understand this is a free web tool (can trigger rich results) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Image Converter",
+    "url": "https://flarixo.ai/tools/image-converter",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Free online tool to convert images between JPG, PNG, WEBP, BMP, and TIFF formats with batch support.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Flarixo AI"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this image converter free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, converting images between JPG, PNG, WEBP, BMP, and TIFF on Flarixo AI is completely free with no signup required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I convert multiple images at once?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, this tool supports batch conversion so you can upload and convert several images in a single request."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which image formats are supported?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can convert between JPG, JPEG, PNG, WEBP, BMP, and TIFF formats."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will converting reduce my image quality?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The converter preserves image quality as closely as possible during format conversion, though some lossy formats like JPG may apply standard compression."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --accent: #7C3AED;
+      --accent2: #06B6D4;
+      --accent-glow: rgba(124,58,237,0.18);
+      --bg: #09090f;
+      --bg2: #111118;
+      --bg3: #18181f;
+      --surface: #1f1f2a;
+      --surface2: #252533;
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(124,58,237,0.45);
+      --text: #f0f0f8;
+      --text2: #a0a0b8;
+      --text3: #6b6b84;
+      --radius: 14px;
+      --radius-sm: 8px;
+      --header-h: 68px;
+      --success: #34d399;
+      --error: #f87171;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg); color: var(--text);
+      line-height: 1.6; overflow-x: hidden;
+    }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: var(--header-h);
+      background: rgba(9,9,15,0.82);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border); z-index: 1000;
+    }
+    .header-inner {
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 24px; height: 100%;
+      display: flex; align-items: center; gap: 24px;
+    }
+    .logo {
+      font-family: 'Syne', sans-serif; font-size: 1.55rem; font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #a78bfa, #06b6d4);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; flex-shrink: 0; text-decoration: none;
+    }
+    nav {
+      display: flex; align-items: center; gap: 4px; flex: 1; justify-content: center;
+    }
+    nav a {
+      color: var(--text2); text-decoration: none; font-size: 0.875rem; font-weight: 500;
+      padding: 7px 14px; border-radius: var(--radius-sm);
+      transition: color 0.2s, background 0.2s;
+    }
+    nav a:hover { color: var(--text); background: var(--surface); }
+    .header-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .btn-login {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: linear-gradient(135deg,#7c3aed,#06b6d4); color: #fff;
+      text-decoration: none; font-size: 0.84rem; font-weight: 600;
+      padding: 9px 18px; border-radius: 9px;
+      transition: opacity 0.2s, transform 0.2s;
+      white-space: nowrap;
+    }
+    .btn-login:hover { opacity: 0.88; transform: translateY(-1px); }
+    .back-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--text2); text-decoration: none; font-size: 0.84rem; font-weight: 500;
+      padding: 8px 14px; border-radius: 9px; border: 1px solid var(--border);
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+    .back-btn:hover { color: var(--text); border-color: rgba(124,58,237,0.4); background: var(--accent-glow); }
+    .hamburger {
+      display: none; background: none; border: 1px solid var(--border);
+      border-radius: 8px; padding: 8px; cursor: pointer; color: var(--text);
+      align-items: center; justify-content: center;
+    }
+    .mobile-nav {
+      display: none; position: fixed; top: var(--header-h); left: 0; right: 0;
+      background: rgba(9,9,15,0.97); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border); padding: 16px 24px 24px;
+      z-index: 999; flex-direction: column; gap: 6px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      color: var(--text2); text-decoration: none; font-size: 1rem; font-weight: 500;
+      padding: 12px 0; border-bottom: 1px solid var(--border);
+    }
+    .mobile-nav a:hover { color: var(--text); }
+
+    /* ── HERO ── */
+    .tool-hero {
+      padding-top: calc(var(--header-h) + 72px);
+      padding-bottom: 56px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .hero-orb { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; }
+    .orb1 { width: 400px; height: 400px; background: rgba(124,58,237,0.18); top: -80px; left: -80px; animation: float1 12s ease-in-out infinite; }
+    .orb2 { width: 350px; height: 350px; background: rgba(6,182,212,0.13); bottom: -60px; right: -60px; animation: float2 14s ease-in-out infinite; }
+    @keyframes float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(30px,20px)} }
+    @keyframes float2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-20px,15px)} }
+    .tool-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(124,58,237,0.12); border: 1px solid rgba(124,58,237,0.35);
+      color: #c4b5fd; font-size: 0.75rem; font-weight: 600;
+      padding: 5px 14px; border-radius: 50px;
+      margin-bottom: 20px; letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .tool-hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800; letter-spacing: -1.5px; margin-bottom: 16px; line-height: 1.1;
+    }
+    .grad {
+      background: linear-gradient(135deg,#a78bfa,#06b6d4);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .tool-hero p {
+      max-width: 560px; margin: 0 auto;
+      font-size: 1rem; color: var(--text2); line-height: 1.75;
+      padding: 0 16px;
+    }
+    .hero-keywords {
+      max-width: 620px; margin: 14px auto 0;
+      font-size: 0.82rem; color: var(--text3);
+      padding: 0 16px;
+    }
+
+    /* ── LAYOUT ── */
+    .tool-layout {
+      max-width: 900px; margin: 0 auto;
+      padding: 24px 24px 100px;
+      display: flex; flex-direction: column; gap: 20px;
+    }
+
+    /* ── CARD ── */
+    .tool-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 32px;
+    }
+    .card-title { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+    .card-sub { font-size: 0.85rem; color: var(--text2); margin-bottom: 24px; }
+
+    /* ── UPLOAD ZONE ── */
+    .upload-zone {
+      border: 2px dashed rgba(124,58,237,0.35);
+      border-radius: var(--radius); padding: 52px 24px;
+      background: rgba(124,58,237,0.04); text-align: center; cursor: pointer;
+      transition: border-color 0.25s, background 0.25s, transform 0.2s;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 12px; position: relative;
+    }
+    .upload-zone:hover, .upload-zone.dragover {
+      border-color: rgba(124,58,237,0.65);
+      background: rgba(124,58,237,0.08); transform: translateY(-2px);
+    }
+    .upload-zone input { display: none; }
+    .upload-icon {
+      width: 56px; height: 56px; border-radius: 14px;
+      background: rgba(124,58,237,0.15); border: 1px solid rgba(124,58,237,0.25);
+      display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+    }
+    .upload-zone h3 { font-size: 1rem; font-weight: 600; }
+    .upload-zone p { font-size: 0.82rem; color: var(--text2); }
+    .upload-limit {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 0.73rem; font-weight: 500;
+      background: rgba(6,182,212,0.08); border: 1px solid rgba(6,182,212,0.2);
+      color: #67e8f9; padding: 3px 10px; border-radius: 20px;
+    }
+
+    /* ── FORMAT SELECT ── */
+    .format-row {
+      display: flex; align-items: center; gap: 14px;
+      margin-top: 24px; flex-wrap: wrap;
+    }
+    .format-row label {
+      font-size: 0.85rem; font-weight: 600; color: var(--text2);
+      flex-shrink: 0;
+    }
+    .format-select {
+      flex: 1; min-width: 160px;
+      background: var(--bg2); border: 1px solid var(--border);
+      color: var(--text); font-family: 'Inter', sans-serif;
+      font-size: 0.88rem; padding: 12px 16px; border-radius: 10px;
+      cursor: pointer; appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23a0a0b8' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 14px center;
+      padding-right: 38px;
+      transition: border-color 0.2s, background-color 0.2s;
+    }
+    .format-select:focus {
+      outline: none; border-color: rgba(124,58,237,0.55); background-color: var(--bg3);
+    }
+    .format-select option { background: var(--bg2); color: var(--text); }
+
+    /* ── PREVIEW ── */
+    .preview-grid {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;
+    }
+    .preview-thumb {
+      width: 84px; height: 84px; border-radius: 10px; overflow: hidden;
+      border: 1px solid var(--border); flex-shrink: 0;
+      background: var(--bg2);
+    }
+    .preview-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* ── PRIMARY BTN ── */
+    .btn-primary-action {
+      width: 100%; padding: 14px 28px;
+      background: linear-gradient(135deg,#7c3aed,#06b6d4);
+      color: #fff; border: none; border-radius: 11px;
+      font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600;
+      cursor: pointer; transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 24px rgba(124,58,237,0.3);
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      margin-top: 20px; text-decoration: none;
+    }
+    .btn-primary-action:hover:not(:disabled) { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(124,58,237,0.45); }
+    .btn-primary-action:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+
+    /* ── PROGRESS ── */
+    .progress-wrap {
+      display: none; flex-direction: column; gap: 10px;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 12px; padding: 20px; margin-top: 16px;
+    }
+    .progress-wrap.show { display: flex; }
+    .progress-header { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+    .progress-label { font-size: 0.875rem; font-weight: 600; }
+    .progress-pct { font-size: 0.82rem; font-weight: 600; color: #a78bfa; flex-shrink: 0; }
+    .progress-track { width: 100%; height: 8px; border-radius: 4px; background: var(--surface2); overflow: hidden; }
+    .progress-fill {
+      height: 100%; border-radius: 4px; width: 0%;
+      background: linear-gradient(90deg,#7c3aed,#06b6d4); transition: width 0.35s ease;
+      position: relative; overflow: hidden;
+    }
+    .progress-fill::after {
+      content: ''; position: absolute; top: 0; left: -100%; bottom: 0; width: 60%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      animation: shimmerBar 1.2s ease infinite;
+    }
+    @keyframes shimmerBar { 0%{left:-100%} 100%{left:200%} }
+    .progress-stage { font-size: 0.78rem; color: var(--text2); }
+
+    /* ── RESULT / DOWNLOAD ── */
+    #downloadSection { display: none; }
+    #downloadSection.show { display: block; }
+    .btn-download {
+      display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px;
+      background: rgba(52,211,153,0.12); border: 1px solid rgba(52,211,153,0.3);
+      color: var(--success); border-radius: 11px;
+      font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600;
+      cursor: pointer; text-decoration: none; width: 100%; justify-content: center;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-download:hover { background: rgba(52,211,153,0.22); transform: translateY(-1px); }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(30px);
+      background: var(--surface2); border: 1px solid var(--border);
+      color: var(--text); border-radius: 10px; padding: 12px 22px;
+      font-size: 0.88rem; font-weight: 500; opacity: 0; pointer-events: none;
+      transition: opacity 0.3s, transform 0.3s;
+      display: flex; align-items: center; gap: 10px; z-index: 9999;
+      max-width: calc(100vw - 32px); text-align: center;
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .toast.success { border-color: rgba(52,211,153,0.4); }
+    .toast.error   { border-color: rgba(248,113,113,0.4); }
+    .toast-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .toast.success .toast-dot { background: #34d399; }
+    .toast.error   .toast-dot { background: #f87171; }
+
+    /* ── SEO CONTENT SECTION ── */
+    .seo-section {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 32px;
+    }
+    .seo-section h2 {
+      font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 700;
+      margin-bottom: 14px; letter-spacing: -0.3px;
+    }
+    .seo-section p { font-size: 0.9rem; color: var(--text2); margin-bottom: 14px; }
+    .seo-section ul { list-style: none; display: grid; grid-template-columns: repeat(2,1fr); gap: 8px; margin-top: 10px; }
+    .seo-section ul li {
+      font-size: 0.85rem; color: var(--text2);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .seo-section ul li::before { content: "✓"; color: #34d399; font-weight: 700; flex-shrink: 0; }
+      /* ── FAq ── */
+    /* ── FAQ ── */
+.faq-header{
+  text-align:center;
+  margin-bottom:32px;
+}
+
+.faq-header h2{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(1.8rem,4vw,2.8rem);
+  font-weight:800;
+  letter-spacing:-0.5px;
+  margin-bottom:10px;
+}
+
+.faq-header p{
+  color:var(--text2);
+  font-size:1rem;
+}
+
+.faq-list{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.faq-item{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:18px;
+  overflow:hidden;
+  transition:all .25s ease;
+}
+
+.faq-item:hover{
+  border-color:rgba(124,58,237,.45);
+  transform:translateY(-2px);
+  box-shadow:0 10px 30px rgba(124,58,237,.12);
+}
+
+.faq-question{
+  width:100%;
+  background:none;
+  border:none;
+  cursor:pointer;
+  color:var(--text);
+  padding:22px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  text-align:left;
+  font-family:'Inter',sans-serif;
+  font-size:1rem;
+  font-weight:700;
+}
+
+.faq-question:hover{
+  color:#fff;
+}
+
+.faq-icon{
+  color:#a78bfa;
+  font-size:1.4rem;
+  font-weight:700;
+  transition:transform .3s ease;
+  flex-shrink:0;
+}
+
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .35s ease;
+}
+
+.faq-answer p{
+  padding:0 24px 22px;
+  color:var(--text2);
+  font-size:.9rem;
+  line-height:1.8;
+}
+
+.faq-item.active .faq-answer{
+  max-height:200px;
+}
+
+.faq-item.active .faq-icon{
+  transform:rotate(45deg);
+}
+
+@media (max-width:768px){
+  .faq-question{
+    padding:18px 20px;
+    font-size:.95rem;
+  }
+
+  .faq-answer p{
+    padding:0 20px 18px;
+  }
+}
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg2); border-top: 1px solid var(--border);
+      padding: 28px 24px;
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo {
+      font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 800;
+      background: linear-gradient(135deg, #a78bfa, #06b6d4);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; text-decoration: none;
+    }
+    .footer-copy { font-size: 0.8rem; color: var(--text3); }
+    .footer-links { display: flex; gap: 18px; }
+    .footer-links a { font-size: 0.8rem; color: var(--text3); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text2); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .hamburger { display: flex; }
+      .tool-card, .seo-section { padding: 22px; }
+      .tool-layout { padding-top: 16px; gap: 16px; }
+      .upload-zone { padding: 36px 16px; }
+      .format-row { flex-direction: column; align-items: stretch; }
+      .format-row label { width: 100%; }
+      .format-select { width: 100%; }
+      .preview-thumb { width: 70px; height: 70px; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; }
+      .btn-primary-action { font-size: 0.88rem; }
+      .header-actions .back-btn span.back-label { display: none; }
+      .seo-section ul { grid-template-columns: 1fr; }
+      .header-inner { padding: 0 16px; gap: 420px; }
+    }
+    @media (max-width: 480px) {
+      .header-inner { padding: 0 16px; gap: 92px; }
+      .btn-login { padding: 9px 14px; font-size: 0.8rem; }
+      .back-btn { padding: 8px 10px; }
+      .tool-layout { padding: 16px 16px 70px; }
+      .tool-hero { padding-top: calc(var(--header-h) + 40px); padding-bottom: 36px; }
+      .tool-hero h1 { font-size: 1.9rem; }
+      .tool-card, .seo-section { padding: 18px; }
+      .upload-zone { padding: 28px 14px; gap: 10px; }
+      .upload-icon { width: 48px; height: 48px; font-size: 1.3rem; }
+      .upload-zone h3 { font-size: 0.92rem; }
+      .progress-header { flex-wrap: wrap; }
+      .preview-thumb { width: 60px; height: 60px; }
+    }
+
+
+
+    
+    @media (max-width: 450px) {
+    .header-inner { padding: 0 16px; gap: 50px; }
+    }
+      @media (max-width: 430px) {
+    .header-inner { padding: 0 16px; gap: 50px; }
+    }
+    @media (max-width: 420px) {
+    .header-inner { padding: 0 16px; gap: 50px; }
+    }
+        @media (max-width: 390px) {
+      .upload-limit { font-size: 0.68rem; padding: 3px 8px; }
+        .header-inner { padding: 0 16px; gap: 25px; }
+    }
+    @media (max-width: 380px) {
+      .upload-limit { font-size: 0.68rem; padding: 3px 8px; }
+        .header-inner { padding: 0 16px; gap: 10px; }
+    }
+      @media (max-width: 360px) {
+    .header-inner { padding: 0 14px; gap: 0px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo">Flarixo AI</a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/tools">Tools</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <!-- <a href="/tools" class="back-btn">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          <span class="back-label">All Tools</span>
+        </a> -->
+        <a href="/loginSystem" class="btn-login" id="headerSignIn">Sign In</a>
+        <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('open')" aria-label="Menu">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="/">Home</a>
+    <a href="/tools">Tools</a>
+    <a href="/pricing">Pricing</a>
+    <a href="/contact">Contact</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="tool-hero">
+    <div class="hero-orb orb1"></div>
+    <div class="hero-orb orb2"></div>
+    <div class="tool-badge">🖼️ Free Online Image Tool</div>
+    <h1>Free Online Image <span class="grad">Converter</span></h1>
+    <p>Convert images between JPG, PNG, WEBP, BMP, and TIFF instantly — free, fast, and secure. No software install, no signup, no watermarks.</p>
+    <p class="hero-keywords">Convert JPG to PNG, PNG to WEBP, WEBP to JPG, and more — all in your browser, in seconds.</p>
+  </section>
+
+  <!-- Tool -->
+  <main class="tool-layout">
+
+    <!-- Upload + Convert Card -->
+    <div class="tool-card">
+      <p class="card-title">Upload Your Images</p>
+      <p class="card-sub">Drag & drop, or click to select one or more images. Choose your target format and convert.</p>
+
+      <label class="upload-zone" id="uploadZone">
+        <input type="file" accept="image/*" id="uploadInput" multiple>
+        <div class="upload-icon">☁️</div>
+        <h3>Click or drag & drop your images here</h3>
+        <p>PNG, JPG, WEBP, BMP, TIFF supported</p>
+        <span class="upload-limit">✦ Batch conversion supported</span>
+      </label>
+
+      <!-- Preview thumbnails -->
+      <div class="preview-grid" id="previewBox"></div>
+
+      <!-- Format selection -->
+      <div class="format-row">
+        <label for="format">Convert to</label>
+        <select id="format" class="format-select">
+          <option value="png">PNG</option>
+          <option value="jpg">JPG</option>
+          <option value="jpeg">JPEG</option>
+          <option value="webp">WEBP</option>
+          <option value="bmp">BMP</option>
+          <option value="tiff">TIFF</option>
+        </select>
+      </div>
+
+      <button class="btn-primary-action" id="convertBtn">
+        🔁 Convert Images
+      </button>
+
+      <!-- Progress -->
+      <div class="progress-wrap" id="progressContainer">
+        <div class="progress-header">
+          <span class="progress-label" id="progressLabel">Converting…</span>
+          <span class="progress-pct" id="progressPct">0%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressBar"></div>
+        </div>
+        <span class="progress-stage" id="progressStage">Sending images to server…</span>
+      </div>
+
+      <!-- Download -->
+      <div id="downloadSection">
+        <a href="#" class="btn-download" id="downloadBtn">⬇️ Download Converted Images</a>
+      </div>
+    </div>
+
+    <!-- SEO content: what it does + supported conversions -->
+    <div class="seo-section">
+      <h2>About the Online Image Converter</h2>
+      <p>Flarixo AI's image converter lets you change the format of your photos and graphics directly in your browser. Whether you need to convert a JPG to PNG for transparency, a PNG to WEBP for faster web pages, or a TIFF to JPG for easier sharing, this tool handles it in seconds — completely free, with no software to install and no account required.</p>
+      <ul>
+        <li>Convert JPG to PNG</li>
+        <li>Convert PNG to WEBP</li>
+        <li>Convert WEBP to JPG</li>
+        <li>Convert BMP to PNG</li>
+        <li>Convert TIFF to JPG</li>
+        <li>Batch convert multiple images at once</li>
+      </ul>
+    </div>
+
+    <!-- FAQ for long-tail SEO -->
+  <div class="seo-section">
+
+  <div class="faq-header">
+    <h2>Frequently Asked Questions</h2>
+    <p>Everything you need to know about image conversion.</p>
+  </div>
+
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>Is this image converter free to use?</span>
+        <span class="faq-icon">+</span>
+      </button>
+
+      <div class="faq-answer">
+        <p>
+          Yes. Converting images between JPG, PNG, WEBP, BMP, and TIFF is completely free with no signup required.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>Can I convert multiple images at once?</span>
+        <span class="faq-icon">+</span>
+      </button>
+
+      <div class="faq-answer">
+        <p>
+          Yes, batch conversion is fully supported. Upload multiple images and convert them all in a single operation.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>Which image formats are supported?</span>
+        <span class="faq-icon">+</span>
+      </button>
+
+      <div class="faq-answer">
+        <p>
+          You can convert between JPG, JPEG, PNG, WEBP, BMP, and TIFF image formats.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>Will converting reduce my image quality?</span>
+        <span class="faq-icon">+</span>
+      </button>
+
+      <div class="faq-answer">
+        <p>
+          Image quality is preserved as closely as possible. However, formats like JPG use lossy compression which may slightly reduce quality.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+  </main>
+
+  <!-- Toast -->
+  <div class="toast" id="globalToast">
+    <span class="toast-dot"></span>
+    <span id="globalToastMsg"></span>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <a href="/" class="footer-logo">Flarixo AI</a>
+      <p class="footer-copy">© 2025 Flarixo AI. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/tools">Tools</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ── ELEMENTS ── */
+    const uploadInput       = document.getElementById("uploadInput");
+    const uploadZone        = document.getElementById("uploadZone");
+    const previewBox        = document.getElementById("previewBox");
+    const formatSelect      = document.getElementById("format");
+    const convertBtn        = document.getElementById("convertBtn");
+    const progressContainer = document.getElementById("progressContainer");
+    const progressBar       = document.getElementById("progressBar");
+    const progressPct       = document.getElementById("progressPct");
+    const progressLabel     = document.getElementById("progressLabel");
+    const progressStage     = document.getElementById("progressStage");
+    const downloadSection   = document.getElementById("downloadSection");
+    const downloadBtn       = document.getElementById("downloadBtn");
+    const globalToast       = document.getElementById("globalToast");
+    const globalToastMsg    = document.getElementById("globalToastMsg");
+
+    let files = [];
+
+    <!-- const FRONTEND_URL = "{{ FRONTEND_URL }}"; -->
+    const FRONTEND_URL = "";
+
+    /* ── TOAST HELPER ── */
+    let toastTimer = null;
+    function showToast(msg, type = "success") {
+      clearTimeout(toastTimer);
+      globalToastMsg.textContent = msg;
+      globalToast.classList.remove("success", "error");
+      globalToast.classList.add(type, "show");
+      toastTimer = setTimeout(() => globalToast.classList.remove("show"), 3200);
+    }
+
+    /* ── FILE SELECTION + PREVIEW ── */
+    function renderPreview() {
+      previewBox.innerHTML = "";
+      files.forEach(file => {
+        const thumb = document.createElement("div");
+        thumb.className = "preview-thumb";
+        const img = document.createElement("img");
+        img.src = URL.createObjectURL(file);
+        thumb.appendChild(img);
+        previewBox.appendChild(thumb);
+      });
+    }
+
+    uploadInput.addEventListener("change", () => {
+      files = [...uploadInput.files];
+      renderPreview();
+    });
+
+    /* Drag & drop onto the upload zone */
+    ["dragenter", "dragover"].forEach(evt => {
+      uploadZone.addEventListener(evt, (e) => {
+        e.preventDefault();
+        uploadZone.classList.add("dragover");
+      });
+    });
+    ["dragleave", "drop"].forEach(evt => {
+      uploadZone.addEventListener(evt, (e) => {
+        e.preventDefault();
+        uploadZone.classList.remove("dragover");
+      });
+    });
+    uploadZone.addEventListener("drop", (e) => {
+      const dropped = e.dataTransfer.files;
+      if (dropped && dropped.length) {
+        files = [...dropped];
+        renderPreview();
+      }
+    });
+
+    /* ── CONVERT ── */
+    convertBtn.addEventListener("click", async (e) => {
+      e.preventDefault();
+
+      if (!files.length) {
+        showToast("Please upload at least one image.", "error");
+        return;
+      }
+
+      downloadSection.classList.remove("show");
+      progressContainer.classList.add("show");
+      progressBar.style.width = "0%";
+      progressPct.textContent = "0%";
+      progressLabel.textContent = "Uploading…";
+      progressStage.textContent = "Sending images to server…";
+      convertBtn.textContent = "⏳ Converting…";
+      convertBtn.disabled = true;
+
+      const formData = new FormData();
+      files.forEach(f => formData.append("images", f));
+      formData.append("format", formatSelect.value);
+
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", `${FRONTEND_URL}/convert-image`);
+      xhr.responseType = "blob";
+
+      xhr.upload.onprogress = (ev) => {
+        if (ev.lengthComputable) {
+          const pct = Math.round((ev.loaded / ev.total) * 100);
+          progressBar.style.width = pct + "%";
+          progressPct.textContent = pct + "%";
+          progressStage.textContent = pct < 100 ? "Uploading images…" : "Converting on server…";
+        }
+      };
+
+      xhr.onload = () => {
+        convertBtn.textContent = "🔁 Convert Images";
+        convertBtn.disabled = false;
+
+        if (xhr.status !== 200) {
+          progressLabel.textContent = "❌ Failed";
+          progressStage.textContent = "Something went wrong. Please try again.";
+          showToast("Conversion failed. Please try again.", "error");
+          return;
+        }
+
+        progressBar.style.width = "100%";
+        progressPct.textContent = "100%";
+        progressLabel.textContent = "Done!";
+        progressStage.textContent = "Conversion complete.";
+        showToast("Images converted successfully!", "success");
+
+        const blob = xhr.response;
+        const url = URL.createObjectURL(blob);
+        downloadBtn.href = url;
+        downloadBtn.download = files.length === 1
+          ? `converted.${formatSelect.value}`
+          : "converted_images.zip";
+        downloadSection.classList.add("show");
+      };
+
+      xhr.onerror = () => {
+        convertBtn.textContent = "🔁 Convert Images";
+        convertBtn.disabled = false;
+        progressLabel.textContent = "⚠ Network Error";
+        progressStage.textContent = "Check your connection and try again.";
+        showToast("Network error. Check your connection.", "error");
+      };
+
+      xhr.send(formData);
+    });
+
+    /* ── DOWNLOAD CLICK FEEDBACK ── */
+    downloadBtn.addEventListener("click", () => {
+      showToast("Download started.", "success");
+    });
+
+    document.querySelectorAll(".faq-question").forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    const item = button.closest(".faq-item");
+
+    document.querySelectorAll(".faq-item").forEach(faq => {
+      if (faq !== item) {
+        faq.classList.remove("active");
+      }
+    });
+
+    item.classList.toggle("active");
+
+  });
+
+});
+  </script>
+  <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+</body>
+</html>

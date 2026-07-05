@@ -1,0 +1,2053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Flarixo AI – The ultimate free AI toolkit. Remove backgrounds, extract text with OCR, convert files, compress videos, enhance images, shorten URLs and more. No sign-up needed.">
+  <meta name="keywords" content="Flarixo AI, AI tools, background remover, OCR, image to text, text to speech, image converter, PDF to DOCX, URL shortener, noise reduction, voice to text, image enhancement, object remover, free AI tools online, file compression, images to PDF">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Flarixo AI">
+  <meta property="og:title" content="Flarixo AI – All AI Tools in One Place">
+  <meta property="og:description" content="12+ free AI-powered tools: background removal, OCR, image converter, PDF tools, voice tools and more. No sign-up. Instant results.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://flarixo.ai">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Flarixo AI – All AI Tools in One Place">
+  <meta name="twitter:description" content="12+ free AI-powered tools at your fingertips. No sign-up required.">
+  <title>Flarixo AI – All AI Tools in One Place</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --accent: #7C3AED;
+      --accent2: #06B6D4;
+      --accent-glow: rgba(124,58,237,0.18);
+      --bg: #09090f;
+      --bg2: #111118;
+      --bg3: #18181f;
+      --surface: #1f1f2a;
+      --surface2: #252533;
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(124,58,237,0.45);
+      --text: #f0f0f8;
+      --text2: #a0a0b8;
+      --text3: #6b6b84;
+      --radius: 14px;
+      --radius-sm: 8px;
+      --header-h: 68px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--header-h);
+      background: rgba(9,9,15,0.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      transition: background 0.3s;
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #a78bfa, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex: 1;
+      justify-content: center;
+    }
+
+    nav a {
+      color: var(--text2);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 7px 14px;
+      border-radius: var(--radius-sm);
+      transition: color 0.2s, background 0.2s;
+    }
+    nav a:hover { color: var(--text); background: var(--surface); }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .search-wrap {
+      position: relative;
+    }
+    .search-wrap svg {
+      position: absolute;
+      left: 11px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text3);
+      pointer-events: none;
+    }
+    .search-bar {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 9px 12px 9px 34px;
+      color: var(--text);
+      font-size: 0.84rem;
+      font-family: 'Inter', sans-serif;
+      width: 200px;
+      outline: none;
+      transition: border-color 0.2s, width 0.3s, background 0.2s;
+    }
+    .search-bar::placeholder { color: var(--text3); }
+    .search-bar:focus {
+      border-color: var(--accent);
+      background: var(--surface2);
+      width: 250px;
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
+    .btn-login {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg,#7c3aed,#06b6d4);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 600;
+      padding: 9px 18px;
+      border-radius: 9px;
+      transition: opacity 0.2s, transform 0.2s;
+      white-space: nowrap;
+    }
+    .btn-login:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* ── USER CHIP (shown when logged in) ── */
+    .user-chip {
+      display: none; /* shown by JS when logged in */
+      align-items: center;
+      gap: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 4px 14px 4px 4px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text2);
+      cursor: default;
+      transition: border-color 0.2s;
+    }
+    .user-chip.visible { display: inline-flex; }
+    .user-avatar {
+      width: 26px; height: 26px; border-radius: 50%;
+      background: linear-gradient(135deg,#7c3aed,#06b6d4);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700; color: #fff; flex-shrink: 0;
+    }
+    .btn-signout {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text3);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 6px 12px;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+      white-space: nowrap;
+      display: none;
+    }
+    .btn-signout.visible { display: inline-flex; align-items: center; gap: 5px; }
+    .btn-signout:hover { color: #f87171; border-color: rgba(248,113,113,0.4); background: rgba(248,113,113,0.06); }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px;
+      cursor: pointer;
+      color: var(--text);
+    }
+
+    /* ── MOBILE NAV ── */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: var(--header-h);
+      left: 0; right: 0;
+      background: rgba(9,9,15,0.97);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px 24px;
+      z-index: 999;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      color: var(--text2);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+    .mobile-nav a:hover { color: var(--text); }
+    .mobile-nav .btn-login { margin-top: 8px; justify-content: center; }
+
+    /* ── TICKER ── */
+    .ticker-wrap {
+      position: fixed;
+      top: var(--header-h);
+      left: 0; right: 0;
+      z-index: 998;
+      background: linear-gradient(90deg,#7c3aed,#06b6d4,#7c3aed);
+      background-size: 200% 100%;
+      animation: tickerShift 6s linear infinite;
+      overflow: hidden;
+      height: 34px;
+    }
+    @keyframes tickerShift { 0%{background-position:0%} 100%{background-position:200%} }
+    .ticker-inner {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      white-space: nowrap;
+    }
+    .ticker-track {
+      display: inline-block;
+      animation: marquee 22s linear infinite;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.95);
+      padding-left: 100%;
+    }
+    @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-100%)} }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      padding-top: calc(var(--header-h) + 34px + 80px);
+      padding-bottom: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      pointer-events: none;
+      will-change: transform;
+    }
+    .orb1 {
+      width: 600px; height: 600px;
+      background: rgba(124,58,237,0.22);
+      top: -100px; left: -150px;
+      animation: float1 12s ease-in-out infinite;
+    }
+    .orb2 {
+      width: 500px; height: 500px;
+      background: rgba(6,182,212,0.18);
+      bottom: -80px; right: -100px;
+      animation: float2 14s ease-in-out infinite;
+    }
+    .orb3 {
+      width: 300px; height: 300px;
+      background: rgba(124,58,237,0.12);
+      top: 50%; left: 55%;
+      animation: float3 10s ease-in-out infinite;
+    }
+    @keyframes float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(40px,30px)} }
+    @keyframes float2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-30px,20px)} }
+    @keyframes float3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(20px,-20px)} }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(124,58,237,0.12);
+      border: 1px solid rgba(124,58,237,0.35);
+      color: #c4b5fd;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 7px 16px;
+      border-radius: 50px;
+      margin-bottom: 28px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      animation: fadeSlideDown 0.8s ease forwards;
+      opacity: 0;
+    }
+    .badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #7c3aed;
+      animation: pulse 2s ease infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.07;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeSlideDown 0.9s ease 0.15s forwards;
+    }
+    .hero h1 .grad {
+      background: linear-gradient(135deg,#a78bfa 0%,#06b6d4 55%,#a78bfa 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 4s linear infinite;
+    }
+    @keyframes shimmer { to{background-position:200% center} }
+
+    .hero p {
+      max-width: 600px;
+      font-size: 1.15rem;
+      color: var(--text2);
+      margin: 0 auto 40px;
+      line-height: 1.75;
+      opacity: 0;
+      animation: fadeSlideUp 0.9s ease 0.3s forwards;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeSlideUp 0.9s ease 0.45s forwards;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg,#7c3aed,#06b6d4);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 14px 30px;
+      border-radius: 11px;
+      transition: opacity 0.2s, transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 0 30px rgba(124,58,237,0.35);
+    }
+    .btn-primary:hover {
+      opacity: 0.92;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 40px rgba(124,58,237,0.5);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 13px 28px;
+      border-radius: 11px;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    }
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      background: var(--accent-glow);
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      justify-content: center;
+      margin-top: 64px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeSlideUp 0.9s ease 0.6s forwards;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg,#a78bfa,#06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text3);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    @keyframes fadeSlideDown {
+      from { opacity:0; transform:translateY(-22px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    @keyframes fadeSlideUp {
+      from { opacity:0; transform:translateY(22px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .section {
+      padding: 100px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #a78bfa;
+      margin-bottom: 16px;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 18px; height: 2px;
+      background: linear-gradient(90deg,#7c3aed,#06b6d4);
+      border-radius: 2px;
+    }
+
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--text2);
+      max-width: 520px;
+      margin-bottom: 56px;
+    }
+
+    /* ── TOOL GRID ── */
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 18px;
+    }
+
+    .tool-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      opacity: 0;
+      transform: translateY(30px);
+      cursor: pointer;
+    }
+    .tool-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg,rgba(124,58,237,0.06),transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .tool-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(124,58,237,0.18);
+    }
+    .tool-card:hover::before { opacity: 1; }
+    .tool-card.visible { opacity: 1; transform: translateY(0); }
+
+    .tool-icon {
+      width: 46px; height: 46px;
+      border-radius: 12px;
+      background: rgba(124,58,237,0.14);
+      border: 1px solid rgba(124,58,237,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      flex-shrink: 0;
+    }
+
+    .tool-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .tool-desc {
+      font-size: 0.84rem;
+      color: var(--text2);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .tool-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #a78bfa;
+      font-size: 0.83rem;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 4px;
+      transition: gap 0.2s, color 0.2s;
+    }
+    .tool-link:hover { color: #06b6d4; gap: 10px; }
+    .tool-link svg { flex-shrink: 0; }
+
+    /* ── HOW IT WORKS ── */
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 28px;
+      counter-reset: how;
+    }
+    .how-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 30px 26px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .how-card:hover { border-color: rgba(124,58,237,0.4); }
+    .how-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 4rem;
+      font-weight: 800;
+      color: rgba(124,58,237,0.1);
+      position: absolute;
+      top: 8px; right: 16px;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .how-icon {
+      font-size: 1.7rem;
+      margin-bottom: 14px;
+    }
+    .how-title {
+      font-size: 1.02rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .how-desc {
+      font-size: 0.85rem;
+      color: var(--text2);
+      line-height: 1.65;
+    }
+
+    /* ── WHY FLARIXO ── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+    .why-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+      transition: border-color 0.25s;
+    }
+    .why-card:hover { border-color: rgba(6,182,212,0.4); }
+    .why-icon {
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+    }
+    .why-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .why-desc {
+      font-size: 0.83rem;
+      color: var(--text2);
+      line-height: 1.65;
+    }
+
+    /* ── SEPARATOR ── */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 0 auto;
+    }
+
+    /* ── FAQ ── */
+    .faq-list { max-width: 780px; display: flex; flex-direction: column; gap: 10px; margin: 0 auto; }
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .faq-item.open { border-color: rgba(124,58,237,0.45); }
+
+    .faq-q {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 22px;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+      transition: color 0.2s;
+    }
+    .faq-item.open .faq-q { color: #a78bfa; }
+    .faq-chevron {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s, background 0.2s, border-color 0.2s;
+    }
+    .faq-item.open .faq-chevron {
+      transform: rotate(180deg);
+      background: rgba(124,58,237,0.18);
+      border-color: rgba(124,58,237,0.4);
+    }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.25s ease;
+      font-size: 0.88rem;
+      color: var(--text2);
+      line-height: 1.75;
+      padding: 0 22px;
+    }
+    .faq-item.open .faq-a {
+      max-height: 300px;
+      padding: 0 22px 20px;
+    }
+
+    /* ── CTA BANNER ── */
+    .cta-banner {
+      background: linear-gradient(135deg,rgba(124,58,237,0.18),rgba(6,182,212,0.12));
+      border: 1px solid rgba(124,58,237,0.3);
+      border-radius: 20px;
+      padding: 64px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: 50%;
+      transform: translateX(-50%);
+      width: 500px; height: 500px;
+      background: radial-gradient(circle,rgba(124,58,237,0.14),transparent 70%);
+      pointer-events: none;
+    }
+    .cta-banner h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.8rem,4vw,2.8rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 14px;
+    }
+    .cta-banner p {
+      color: var(--text2);
+      font-size: 1rem;
+      margin-bottom: 32px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 60px 24px 32px;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(3, 1fr);
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+    .footer-brand .logo { font-size: 1.4rem; text-decoration: none; display: inline-block; margin-bottom: 14px; }
+    .footer-brand p { font-size: 0.85rem; color: var(--text2); line-height: 1.7; max-width: 260px; }
+
+    .footer-col h4 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text3);
+      margin-bottom: 16px;
+    }
+    .footer-col a {
+      display: block;
+      color: var(--text2);
+      text-decoration: none;
+      font-size: 0.875rem;
+      margin-bottom: 9px;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: #a78bfa; }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+    .footer-bottom p { font-size: 0.82rem; color: var(--text3); }
+    .socials { display: flex; gap: 10px; }
+    .social-icon {
+      width: 36px; height: 36px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text2);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .social-icon:hover {
+      border-color: var(--accent);
+      color: var(--text);
+      background: var(--accent-glow);
+    }
+
+    /* ── MODALS ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(6px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      max-width: 740px;
+      width: 100%;
+      max-height: 82vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      animation: modalIn 0.25s ease;
+    }
+    @keyframes modalIn {
+      from { opacity:0; transform:scale(0.95) translateY(16px); }
+      to   { opacity:1; transform:scale(1) translateY(0); }
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 28px;
+      border-bottom: 1px solid var(--border);
+    }
+    .modal-header h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+    }
+    .modal-close {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      width: 34px; height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text2);
+      font-size: 1.1rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .modal-close:hover { background: var(--surface2); color: var(--text); }
+    .modal-body {
+      overflow-y: auto;
+      padding: 28px;
+      font-size: 0.9rem;
+      color: var(--text2);
+      line-height: 1.8;
+    }
+    .modal-body h4 {
+      color: var(--text);
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 24px 0 8px;
+    }
+    .modal-body h4:first-child { margin-top: 0; }
+    .modal-body p { margin-bottom: 10px; }
+    .modal-body ul { padding-left: 20px; }
+    .modal-body ul li { margin-bottom: 6px; }
+    .modal-body::-webkit-scrollbar { width: 4px; }
+    .modal-body::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+
+    /* ── SEARCH HIGHLIGHT ── */
+    .tool-card.hidden-tool {
+      display: none;
+    }
+
+    /* ── NO RESULTS ── */
+    #no-results {
+      display: none;
+      text-align: center;
+      padding: 60px 0;
+      color: var(--text3);
+      font-size: 0.95rem;
+      grid-column: 1/-1;
+    }
+    #no-results span { font-size: 2rem; display: block; margin-bottom: 12px; }
+
+    /* ── REDUCED MOTION ── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      nav, .search-wrap { display: none; }
+      .hamburger { display: flex; }
+      .hero h1 { font-size: 2.4rem; letter-spacing: -1px; }
+      .hero-stats { gap: 32px; }
+      .section { padding: 72px 20px; }
+      .footer-top { grid-template-columns: 1fr; gap: 28px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .cta-banner { padding: 44px 24px; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 0.98rem; }
+      .hero-ctas { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
+      .tool-grid { grid-template-columns: 1fr; }
+    }
+    /* ═══════════════════════════════════════════════
+   ENHANCED HOVERS, ANIMATIONS & RESPONSIVENESS
+   ═══════════════════════════════════════════════ */
+
+/* ── NAV: Animated underline slide-in ── */
+nav a {
+  position: relative;
+}
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 2px; left: 14px; right: 14px;
+  height: 1.5px;
+  background: linear-gradient(90deg, #7c3aed, #06b6d4);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+nav a:hover::after { transform: scaleX(1); }
+
+/* ── TOOL CARD: Border glow sweep + shimmer overlay ── */
+.tool-card {
+  transition: border-color 0.3s, transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s;
+  background-image: none;
+}
+.tool-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  background: linear-gradient(120deg, transparent 30%, rgba(124,58,237,0.08) 50%, transparent 70%);
+  background-size: 200% 100%;
+  background-position: 200% 0;
+  transition: background-position 0.6s ease;
+  pointer-events: none;
+}
+.tool-card:hover::after { background-position: -100% 0; }
+.tool-card:hover {
+  border-color: rgba(124,58,237,0.55);
+  transform: translateY(-8px) scale(1.012);
+  box-shadow: 0 20px 56px rgba(124,58,237,0.22), 0 0 0 1px rgba(124,58,237,0.15);
+}
+
+/* ── TOOL CARD: Staggered entrance ── */
+.tool-card:nth-child(1)  { transition-delay: 0.04s; }
+.tool-card:nth-child(2)  { transition-delay: 0.08s; }
+.tool-card:nth-child(3)  { transition-delay: 0.12s; }
+.tool-card:nth-child(4)  { transition-delay: 0.16s; }
+.tool-card:nth-child(5)  { transition-delay: 0.20s; }
+.tool-card:nth-child(6)  { transition-delay: 0.24s; }
+.tool-card:nth-child(7)  { transition-delay: 0.28s; }
+.tool-card:nth-child(8)  { transition-delay: 0.32s; }
+.tool-card:nth-child(9)  { transition-delay: 0.36s; }
+.tool-card:nth-child(10) { transition-delay: 0.40s; }
+.tool-card:nth-child(11) { transition-delay: 0.44s; }
+.tool-card:nth-child(12) { transition-delay: 0.48s; }
+
+/* ── HOW CARDS: Left accent bar slide ── */
+.how-card {
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+.how-card::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 16px; bottom: 16px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: linear-gradient(180deg, #7c3aed, #06b6d4);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+.how-card:hover {
+  border-color: rgba(124,58,237,0.45);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(124,58,237,0.14);
+}
+.how-card:hover::after { transform: scaleY(1); }
+
+/* ── WHY CARDS: Teal accent + icon bounce ── */
+.why-card {
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+.why-card:hover {
+  border-color: rgba(6,182,212,0.5);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 36px rgba(6,182,212,0.1);
+}
+.why-card:hover .why-icon {
+  animation: iconBounce 0.5s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes iconBounce {
+  0%   { transform: translateY(0); }
+  40%  { transform: translateY(-8px); }
+  70%  { transform: translateY(-3px); }
+  100% { transform: translateY(0); }
+}
+
+/* ── BTN PRIMARY: Ripple on click ── */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.28) 0%, transparent 60%);
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.btn-primary:active::after {
+  transform: scale(2.5);
+  opacity: 1;
+  transition: 0s;
+}
+.btn-primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 50px rgba(124,58,237,0.55);
+}
+
+/* ── BTN GHOST: Fill sweep ── */
+.btn-ghost {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+.btn-ghost::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(124,58,237,0.12), rgba(6,182,212,0.08));
+  transform: translateX(-100%);
+  transition: transform 0.35s ease;
+  z-index: -1;
+}
+.btn-ghost:hover::before { transform: translateX(0); }
+.btn-ghost:hover { transform: translateY(-3px); border-color: rgba(124,58,237,0.55); }
+
+/* ── SOCIAL ICONS: Spin-scale ── */
+.social-icon {
+  transition: border-color 0.2s, color 0.2s, background 0.2s, transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+}
+.social-icon:hover {
+  transform: scale(1.2) rotate(8deg);
+  border-color: var(--accent);
+  color: var(--text);
+  background: var(--accent-glow);
+}
+
+/* ── TICKER: Pause on hover ── */
+.ticker-wrap:hover .ticker-track { animation-play-state: paused; }
+
+/* ── CTA BANNER: Breathing pulse ── */
+.cta-banner {
+  animation: bannerBreath 6s ease-in-out infinite;
+}
+@keyframes bannerBreath {
+  0%,100% { box-shadow: 0 0 0 0 transparent; }
+  50%      { box-shadow: 0 0 60px rgba(124,58,237,0.12); }
+}
+
+/* ── FOOTER LINKS: Underline slide ── */
+.footer-col a {
+  position: relative;
+  display: inline-block;
+}
+.footer-col a::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0; right: 0;
+  height: 1px;
+  background: #a78bfa;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.22s ease;
+}
+.footer-col a:hover::after { transform: scaleX(1); }
+
+/* ── HERO BADGE: continuous shimmer ── */
+.hero-badge {
+  background-size: 200% 100%;
+  animation: fadeSlideDown 0.8s ease forwards, badgeShimmer 3s 1s linear infinite;
+}
+@keyframes badgeShimmer {
+  0%   { background-position: 0% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ── HOW ICON: rotate on card hover ── */
+.how-card:hover .how-icon {
+  animation: iconSpin 0.5s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes iconSpin {
+  0%   { transform: rotate(0deg) scale(1); }
+  40%  { transform: rotate(-15deg) scale(1.2); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+
+/* ── FAQ: Smoother transitions ── */
+.faq-q { transition: color 0.25s, background 0.2s; }
+.faq-q:hover { background: rgba(124,58,237,0.06); }
+.faq-chevron { transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), background 0.2s, border-color 0.2s; }
+
+/* ════════════════════════════════════
+   RESPONSIVENESS FIXES
+   ════════════════════════════════════ */
+
+/* ── Hero stats: tighter on small screens ── */
+@media (max-width: 480px) {
+  .hero-stats { gap: 20px; }
+  .stat-num   { font-size: 1.5rem; }
+  .stat-label { font-size: 0.72rem; }
+  .cta-banner { padding: 32px 16px; }
+  .ticker-wrap { height: 32px; }
+  .ticker-track { font-size: 0.72rem; }
+}
+
+/* ── How/Why grids: prevent too-early single-col ── */
+@media (max-width: 600px) {
+  .how-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; }
+  .why-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; }
+}
+
+/* ── Footer: fix column crush at 768px ── */
+@media (max-width: 768px) {
+  .footer-top   { gap: 20px; }
+  .footer-brand p { max-width: 100%; }
+}
+
+/* ── Modal: more space on mobile ── */
+@media (max-width: 600px) {
+  .modal { max-height: 90vh; border-radius: 14px; }
+  .modal-header { padding: 16px 18px; }
+  .modal-body   { padding: 18px; }
+}
+
+/* ── Header at very small screens ── */
+@media (max-width: 360px) {
+  .header-inner { padding: 0 14px; gap: 10px; }
+  .btn-login    { padding: 8px 12px; font-size: 0.78rem; }
+}
+
+/* ── Section padding at small screens ── */
+@media (max-width: 480px) {
+  .section { padding: 56px 16px; }
+}
+
+/* ── Tool grid: ensure 1 col fits snugly ── */
+@media (max-width: 480px) {
+  .tool-grid { gap: 12px; }
+  .tool-card  { padding: 20px; }
+}
+
+/* ── Prevent hero text overflow ── */
+@media (max-width: 360px) {
+  .hero h1 { font-size: 1.75rem; letter-spacing: -0.5px; }
+  .hero p  { font-size: 0.9rem; }
+}
+     @media (max-width: 768px) {
+      .header-inner { padding: 0 16px; gap: 420px; }
+    }
+     @media (max-width: 480px) {
+      .header-inner { padding: 0 16px; gap: 110px; }
+    }
+    @media (max-width: 450px) {
+    .header-inner { padding: 0 16px; gap: 90px; }
+    }
+    @media (max-width: 420px) {
+    .header-inner { padding: 0 16px; gap: 73px; }
+    }
+    @media (max-width: 390px) {
+      .header-inner { padding: 0 16px; gap: 50px; }
+    }
+    @media (max-width: 380px) {
+        .header-inner { padding: 0 16px; gap: 36px; }
+    }
+    @media (max-width: 360px) {
+       .header-inner { padding: 0 16px; gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════ HEADER ═══════════════ -->
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">Flarixo AI</a>
+
+    <nav aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="#tools">Tools</a>
+      <a href="#how">How it works</a>
+      <a href="#faq">FAQ</a>
+      <a href="/pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="search-wrap">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input class="search-bar" id="searchInput" type="search" placeholder="Search tools…" aria-label="Search tools">
+      </div>
+      <!-- Shown when NOT logged in -->
+      <a href="/loginSystem" class="btn-login" id="headerSignIn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+        Sign in
+      </a>
+      <!-- Shown when logged in -->
+      <div class="user-chip" id="userChip">
+        <div class="user-avatar" id="userAvatar">?</div>
+        <span id="userChipName">User</span>
+      </div>
+      <button class="btn-signout" id="btnSignOut" onclick="signOut()">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Sign out
+      </button>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════ MOBILE NAV ═══════════════ -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+  <a href="/" onclick="closeMobileNav()">Home</a>
+  <a href="#tools" onclick="closeMobileNav()">Tools</a>
+  <a href="#how" onclick="closeMobileNav()">How it works</a>
+  <a href="#faq" onclick="closeMobileNav()">FAQ</a>
+  <a href="/pricing" onclick="closeMobileNav()">Pricing</a>
+  <a href="#contact" onclick="closeMobileNav()">Contact</a>
+  <a href="/loginSystem" class="btn-login">Sign in</a>
+</nav>
+
+<!-- ═══════════════ TICKER ═══════════════ -->
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-inner">
+    <span class="ticker-track">
+      ✦ Background Remover &nbsp;&nbsp;·&nbsp;&nbsp; ✦ OCR / Image to Text &nbsp;&nbsp;·&nbsp;&nbsp; ✦ Text-to-Speech &nbsp;&nbsp;·&nbsp;&nbsp; ✦ Image Converter &nbsp;&nbsp;·&nbsp;&nbsp; ✦ Images to PDF &nbsp;&nbsp;·&nbsp;&nbsp; ✦ File &amp; Video Compression &nbsp;&nbsp;·&nbsp;&nbsp; ✦ Noise Reduction &nbsp;&nbsp;·&nbsp;&nbsp; ✦ Voice to Text &nbsp;&nbsp;·&nbsp;&nbsp; ✦ PDF to DOCX &nbsp;&nbsp;·&nbsp;&nbsp; ✦ URL Shortener &nbsp;&nbsp;·&nbsp;&nbsp; ✦ Object Remover &nbsp;&nbsp;·&nbsp;&nbsp; ✦ Image Enhancement &nbsp;&nbsp;·&nbsp;&nbsp; ✦ PDF &amp; Image Editor &nbsp;&nbsp;&nbsp;&nbsp;
+    </span>
+  </div>
+</div>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero" id="home">
+  <div class="hero-orb orb1" aria-hidden="true"></div>
+  <div class="hero-orb orb2" aria-hidden="true"></div>
+  <div class="hero-orb orb3" aria-hidden="true"></div>
+
+  <div class="hero-badge" role="text">
+    <span class="badge-dot" aria-hidden="true"></span>
+    12+ AI-Powered Tools — Free Forever
+  </div>
+
+  <h1>
+    The AI Toolkit<br>
+    <span class="grad">Built for Everyone</span>
+  </h1>
+
+  <p>
+    Remove backgrounds, extract text, compress files, convert images — all in one place.
+    No sign-up. No watermarks. Just results.
+  </p>
+
+  <div class="hero-ctas">
+    <a href="#tools" class="btn-primary">
+      Explore All Tools
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
+    <a href="#how" class="btn-ghost">
+      How it works
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+    </a>
+  </div>
+
+  <div class="hero-stats" role="list">
+    <div class="stat" role="listitem">
+      <div class="stat-num">12+</div>
+      <div class="stat-label">AI Tools</div>
+    </div>
+    <div class="stat" role="listitem">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Free to Use</div>
+    </div>
+    <div class="stat" role="listitem">
+      <div class="stat-num">0</div>
+      <div class="stat-label">Sign-ups Needed</div>
+    </div>
+    <div class="stat" role="listitem">
+      <div class="stat-num">Fast</div>
+      <div class="stat-label">AI Processing</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════ TOOLS ═══════════════ -->
+<section id="tools">
+  <div class="section">
+    <div class="section-label">All Tools</div>
+    <h2 class="section-title">Everything you need,<br>nothing you don't</h2>
+    <p class="section-sub">Pick a tool and get started instantly. No account. No waiting.</p>
+
+    <div class="tool-grid" id="toolGrid" role="list">
+
+      <article class="tool-card" data-name="Background Remover" role="listitem">
+        <i class="fa-solid fa-scissors tool-icon"></i>
+        <div class="tool-name">Background Remover</div>
+        <p class="tool-desc">Erase image backgrounds in seconds with AI precision — perfect for product photos and portraits.</p>
+        <a href="/bac-rem-tool" class="tool-link">
+          Use now
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </article>
+
+
+    <article class="tool-card" data-name="PDF Image Editor" role="listitem">
+      <i class="fa-solid fa-file-pen tool-icon"></i>
+      <div class="tool-name">PDF Editor</div>
+      <p class="tool-desc">
+        Modify text, images, layouts, and elements with complete freedom. Edit, replace, remove, annotate, convert, and enhance PDFs in seconds.
+      </p>
+      <a href="/pdf-edit-uploader" class="tool-link">
+        Edit Now
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M5 12h14"/>
+          <path d="m12 5 7 7-7 7"/>
+        </svg>
+      </a>
+    </article>
+
+    <article class="tool-card" data-name="PDF Image Editor" role="listitem">
+      <i class="fa-solid fa-file-pen tool-icon"></i>
+      <div class="tool-name">Image Editor</div>
+      <p class="tool-desc">
+        Modify text, images, layouts, and elements with complete freedom. Edit, replace, remove, annotate, convert, and enhance images in seconds.
+      </p>
+      <a href="/image-edit-uploader" class="tool-link">
+        Edit Now
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M5 12h14"/>
+          <path d="m12 5 7 7-7 7"/>
+        </svg>
+      </a>
+    </article>
+
+      <article class="tool-card" data-name="OCR Image to Text" role="listitem">
+        <i class="fa-solid fa-file-lines tool-icon"></i>
+        <div class="tool-name">OCR – Image to Text</div>
+        <p class="tool-desc">Extract text from scanned documents, screenshots, or any image with near-perfect accuracy.</p>
+        <a href="/image-to-text" class="tool-link">
+          Use now
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </article>
+
+      <article class="tool-card" data-name="Image Converter" role="listitem">
+        <i class="fa-solid fa-right-left tool-icon"></i>
+        <div class="tool-name">Image Converter</div>
+        <p class="tool-desc">Convert images between JPG, PNG, WEBP and more formats instantly, without quality loss.</p>
+        <a href="/image-converter" class="tool-link">
+          Use now
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </article>
+
+      <article class="tool-card" data-name="Images to PDF" role="listitem">
+        <i class="fa-solid fa-file-circle-plus tool-icon"></i>
+        <div class="tool-name">Images to PDF</div>
+        <p class="tool-desc">Merge multiple images into one clean, ordered PDF file — great for portfolios and reports.</p>
+        <a href="/img-to-pdf" class="tool-link">
+          Use now
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </article>
+
+      <article class="tool-card" data-name="File Video Compression" role="listitem">
+        <i class="fa-solid fa-compress tool-icon"></i>
+        <div class="tool-name">File &amp; Video Compression</div>
+        <p class="tool-desc">Shrink large files and videos to a fraction of their size while preserving visual quality.</p>
+        <a href="/file-compression" class="tool-link">
+          Use now
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </article>
+
+      <article class="tool-card" data-name="Noise Reduction Audio" role="listitem">
+        <i class="fa-solid fa-wave-square tool-icon"></i>
+        <div class="tool-name">Noise Reduction</div>
+        <p class="tool-desc">Clean up background noise from audio recordings, podcasts, or voice memos automatically.</p>
+        <a href="/noice-reduction" class="tool-link">
+          Use now
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </article>
+
+      <article class="tool-card" data-name="Voice to Text Transcription" role="listitem">
+      <i class="fa-solid fa-microphone-lines tool-icon"></i>
+        <div class="tool-name">Voice to Text</div>
+        <p class="tool-desc">Transcribe speech to text in real time — ideal for meetings, interviews, and quick notes.</p>
+        <a href="/voice-to-text_page" class="tool-link">
+          Use now
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </article>
+
+      <article class="tool-card" data-name="PDF to DOCX Word" role="listitem">
+        <i class="fa-solid fa-file-word tool-icon"></i>
+        <div class="tool-name">PDF to DOCX</div>
+        <p class="tool-desc">Convert PDF documents into fully editable Microsoft Word files while keeping your formatting.</p>
+        <a href="/pdf-to-document" class="tool-link">
+          Use now
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </article>
+
+      <article class="tool-card" data-name="URL Shortener Link" role="listitem">
+        <i class="fa-solid fa-link tool-icon"></i>
+        <div class="tool-name">URL Shortener</div>
+        <p class="tool-desc">Turn any long URL into a clean short link with built-in click tracking and analytics.</p>
+        <a href="/url-shortner" class="tool-link">
+          Use now
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </article>
+
+      <article class="tool-card" data-name="Object Remover Photo Eraser" role="listitem">
+         <i class="fa-solid fa-scissors tool-icon"></i>
+        <div class="tool-name">Object Remover</div>
+        <p class="tool-desc">Erase unwanted objects, people, or distractions from photos with smart AI inpainting.</p>
+        <a href="/object-remover" class="tool-link">
+          Use now
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </article>
+
+      <article class="tool-card" data-name="Image Enhancement Upscale" role="listitem">
+        <i class="fa-solid fa-wand-magic-sparkles tool-icon"></i>
+        <div class="tool-name">Image Enhancement</div>
+        <p class="tool-desc">Boost resolution, fix low-light shots, and sharpen details for a professional finish.</p>
+        <a href="/image-enhancement" class="tool-link">
+          Use now
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </article>
+
+      <div id="no-results" aria-live="polite">
+        <span aria-hidden="true"><i class="fa-solid fa-magnifying-glass"></i></span>
+        No tools match "<span id="searchQuery"></span>" — try a different keyword.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════ HOW IT WORKS ═══════════════ -->
+<section id="how">
+  <div class="section">
+    <div class="section-label">How it works</div>
+    <h2 class="section-title">Three steps to done</h2>
+    <p class="section-sub">Flarixo AI handles the complexity. You just pick a tool and go.</p>
+
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-num" aria-hidden="true">01</div>
+        <i class="fa-solid fa-bullseye how-icon"></i>
+        <div class="how-title">Pick your tool</div>
+        <p class="how-desc">Browse 12+ AI-powered tools and select the one that matches your task.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num" aria-hidden="true">02</div>
+        <i class="fa-solid fa-upload how-icon"></i>
+        <div class="how-title">Upload your file</div>
+        <p class="how-desc">Drag and drop or browse to upload your image, PDF, audio, or video. We support all common formats.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num" aria-hidden="true">03</div>
+        <i class="fa-solid fa-bolt how-icon"></i>
+        <div class="how-title">Get instant results</div>
+        <p class="how-desc">Our AI processes your file in seconds. Download the result — clean, crisp, and watermark-free.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num" aria-hidden="true">04</div>
+        <i class="fa-solid fa-right-left how-icon"></i>
+        <div class="how-title">Repeat freely</div>
+        <p class="how-desc">No daily limits, no hidden fees. Use every tool as many times as you need, completely free.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════ WHY FLARIXO ═══════════════ -->
+<section id="why">
+  <div class="section">
+    <div class="section-label">Why Flarixo AI</div>
+    <h2 class="section-title">Designed to just work</h2>
+    <p class="section-sub">No fluff. No paywalls. No sign-up walls. Just powerful AI tools that respect your time.</p>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <i class="fa-solid fa-lock why-icon"></i>
+        <div class="why-title">Privacy first</div>
+        <p class="why-desc">Your files are processed in memory and never stored on our servers. We delete everything after processing.</p>
+      </div>
+      <div class="why-card">
+         <i class="fa-solid fa-bolt how-icon"></i>
+        <div class="why-title">Lightning fast</div>
+        <p class="why-desc">AI-powered processing delivers results in seconds — not minutes. Speed is a feature, not a bonus.</p>
+      </div>
+      <div class="why-card">
+        <i class="fa-solid fa-medal why-icon"></i>
+        <div class="why-title">Always free</div>
+        <p class="why-desc">Every tool on Flarixo AI is free to use. No premium tier hiding the features you actually need.</p>
+      </div>
+      <div class="why-card">
+        <i class="fa-solid fa-layer-group why-icon"></i>
+        <div class="why-title">Works everywhere</div>
+        <p class="why-desc">Fully responsive — use Flarixo AI on your phone, tablet, or desktop without installing anything.</p>
+      </div>
+      <div class="why-card">
+     <i class="fa-solid fa-copyright why-icon"></i>
+        <div class="why-title">No watermarks</div>
+        <p class="why-desc">Download your output exactly as-is. We don't stamp our logo on your work — it's yours.</p>
+      </div>
+      <div class="why-card">
+        <i class="fa-solid fa-arrow-up-right-dots  why-icon"></i>
+        <div class="why-title">Always growing</div>
+        <p class="why-desc">New tools added regularly. Built on user feedback — if you need something, let us know.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════ FAQ ═══════════════ -->
+<section id="faq">
+  <div class="section">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Questions we get a lot</h2>
+    <p class="section-sub">Didn't find your answer? <a href="#contact" style="color:#a78bfa;text-decoration:none;">Reach out to us.</a></p>
+
+    <div class="faq-list" role="list">
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false">
+          Is Flarixo AI really free?
+          <span class="faq-chevron" aria-hidden="true">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="faq-a">Yes — every tool is completely free. No subscription, no credit card, no trial period. We believe useful AI tools should be accessible to everyone, not locked behind a paywall.</div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false">
+          Do I need to create an account?
+          <span class="faq-chevron" aria-hidden="true">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="faq-a">No account needed for most tools. Just open the tool, upload your file, and download the result. An optional account lets you save history and access future premium features.</div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false">
+          Are my uploaded files safe and private?
+          <span class="faq-chevron" aria-hidden="true">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="faq-a">Absolutely. Files are processed in memory and automatically deleted after your session. We never store, share, or analyze your files. Your data is yours — we treat it that way.</div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false">
+          What file formats are supported?
+          <span class="faq-chevron" aria-hidden="true">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="faq-a">We support all major formats. Images: JPG, PNG, WEBP, BMP, TIFF. Documents: PDF, DOCX. Audio: MP3, WAV, M4A. Video: MP4, MOV, AVI, and more. Specific formats vary by tool.</div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false">
+          Is there a file size limit?
+          <span class="faq-chevron" aria-hidden="true">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="faq-a">Most tools accept files up to 50MB. Video compression and PDF tools support up to 200MB. We're constantly increasing limits as our infrastructure scales.</div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false">
+          How accurate is the AI?
+          <span class="faq-chevron" aria-hidden="true">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="faq-a">Very. Our background remover and OCR tools deliver near-perfect accuracy on clean inputs. Results depend on input quality — high-resolution images and clear audio will always yield better results.</div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false">
+          Can I use Flarixo AI on my phone?
+          <span class="faq-chevron" aria-hidden="true">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="faq-a">Yes. Flarixo AI is fully responsive and optimized for mobile use. All tools work on smartphones and tablets — no app download required.</div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false">
+          Will there be more tools added?
+          <span class="faq-chevron" aria-hidden="true">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="faq-a">Yes! We ship new tools regularly. Planned additions include Text-to-Image, AI Writing Assistant, Video Subtitles, and more. Follow us to stay updated.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════ CTA BANNER ═══════════════ -->
+<div style="padding: 0 24px; max-width: 1200px; margin: 0 auto 80px;">
+  <div class="cta-banner" id="contact">
+    <h2>Ready to get started?</h2>
+    <p>Pick any tool above and process your first file in under 30 seconds — free, forever.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="#tools" class="btn-primary">
+        Explore Tools
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="/contact" class="btn-ghost">Contact us</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="logo">Flarixo AI</a>
+        <p>Free AI-powered tools for everyone. No sign-up. No watermarks. No limits. Just results.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <a href="/bac-rem-tool">Background Remover</a>
+        <a href="/image-to-text">OCR / Image to Text</a>
+        <a href="/image-converter">Image Converter</a>
+        <a href="/img-to-pdf">Images to PDF</a>
+        <a href="/pdf-to-document">PDF to DOCX</a>
+      </div>
+      <div class="footer-col">
+        <h4>More tools</h4>
+        <a href="/file-compression">File Compression</a>
+        <a href="/noice-reduction">Noise Reduction</a>
+        <a href="/voice-to-text_page">Voice to Text</a>
+        <a href="/url-shortner">URL Shortener</a>
+        <a href="/object-remover">Object Remover</a>
+        <a href="/image-enhancement">Image Enhancement</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#faq">FAQ</a>
+        <a href="mailto:hello@flarixo.ai">Contact</a>
+        <a href="#" id="openPrivacy">Privacy Policy</a>
+        <a href="#" id="openTerms">Terms &amp; Conditions</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Flarixo AI. All rights reserved. |
+        <a href="#" id="openPrivacy2" style="color:var(--text3);text-decoration:none;margin-left:4px;">Privacy Policy</a> ·
+        <a href="#" id="openTerms2" style="color:var(--text3);text-decoration:none;margin-left:4px;">Terms</a>
+      </p>
+      <div class="socials" aria-label="Social links">
+        <a href="#" class="social-icon" aria-label="Website"><i class="fa-brands fa-wordpress"></i></a>
+        <a href="#" class="social-icon" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" class="social-icon" aria-label="linkdin"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════ PRIVACY POLICY MODAL ═══════════════ -->
+<div class="modal-overlay" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="privacyTitle">Privacy Policy</h3>
+      <button class="modal-close" onclick="closeModal('privacyModal')" aria-label="Close privacy policy">✕</button>
+    </div>
+    <div class="modal-body">
+      <p><em>Last updated: January 2025</em></p>
+
+      <h4>1. Who We Are</h4>
+      <p>Flarixo AI ("we", "us", "our") operates the website flarixo.ai and provides AI-powered file processing tools. Your privacy is fundamental to how we operate — we've designed every tool with a privacy-first approach.</p>
+
+      <h4>2. Information We Collect</h4>
+      <p>We collect minimal data. When you use our tools, we temporarily process the files you upload. These files are handled in memory only and are never written to permanent storage. We may collect:</p>
+      <ul>
+        <li>Usage analytics (page views, tool usage frequency) — anonymized</li>
+        <li>Technical logs (browser type, OS, error reports) — anonymized</li>
+        <li>Account data (name, email) — only if you create an optional account</li>
+      </ul>
+
+      <h4>3. How We Use Your Files</h4>
+      <p>Files you upload are processed solely for the purpose of providing the requested AI service. We do not store, share, analyze, train AI models on, or retain your files after your session ends. All uploaded content is deleted within minutes of processing.</p>
+
+      <h4>4. Cookies &amp; Tracking</h4>
+      <p>We use essential cookies for site functionality (e.g., session management). We use anonymized analytics to understand how tools are used and improve our service. We do not use advertising cookies or third-party trackers.</p>
+
+      <h4>5. Third-Party Services</h4>
+      <p>We may use trusted cloud infrastructure providers to process files. All providers are bound by data processing agreements and handle data according to privacy standards equivalent to or exceeding GDPR requirements.</p>
+
+      <h4>6. Your Rights</h4>
+      <p>Depending on your location, you may have rights to access, correct, delete, or restrict the processing of your personal data. To exercise any of these rights, contact us at privacy@flarixo.ai.</p>
+
+      <h4>7. Data Retention</h4>
+      <p>Uploaded files: deleted immediately after processing (within minutes). Account data: retained until account deletion. Anonymized analytics: retained for up to 24 months.</p>
+
+      <h4>8. Children's Privacy</h4>
+      <p>Flarixo AI is not directed at children under 13. We do not knowingly collect personal data from children. If you believe a child has provided us data, contact us at privacy@flarixo.ai.</p>
+
+      <h4>9. Changes to This Policy</h4>
+      <p>We may update this policy periodically. Changes are posted on this page with an updated date. Continued use of Flarixo AI after changes constitutes acceptance of the revised policy.</p>
+
+      <h4><a href="/contact">10. Contact</a></h4>
+      <p>For privacy-related queries: <a href="mailto:privacy@flarixo.ai" style="color:#a78bfa;">privacy@flarixo.ai</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ TERMS & CONDITIONS MODAL ═══════════════ -->
+<div class="modal-overlay" id="termsModal" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="termsTitle">Terms &amp; Conditions</h3>
+      <button class="modal-close" onclick="closeModal('termsModal')" aria-label="Close terms">✕</button>
+    </div>
+    <div class="modal-body">
+      <p><em>Last updated: January 2025</em></p>
+
+      <h4>1. Acceptance of Terms</h4>
+      <p>By accessing or using Flarixo AI ("the Service"), you agree to be bound by these Terms and Conditions. If you do not agree, please discontinue use of the Service immediately.</p>
+
+      <h4>2. Use of the Service</h4>
+      <p>Flarixo AI grants you a non-exclusive, non-transferable, revocable license to use the Service for personal and commercial purposes, subject to these Terms. You agree to:</p>
+      <ul>
+        <li>Use the Service only for lawful purposes</li>
+        <li>Not upload files containing malware, illegal content, or content that infringes third-party rights</li>
+        <li>Not attempt to reverse-engineer, scrape, or disrupt the Service</li>
+        <li>Not use the Service to generate harmful, abusive, or discriminatory content</li>
+      </ul>
+
+      <h4>3. Intellectual Property</h4>
+      <p>All content you upload remains your property. You retain full ownership of your files and the processed outputs. You grant Flarixo AI a temporary, limited license to process your files solely to provide the requested service. The Flarixo AI platform, branding, and proprietary AI models are owned by Flarixo AI and protected by copyright law.</p>
+
+      <h4>4. Prohibited Uses</h4>
+      <p>You may not use Flarixo AI to process, create, or distribute content that:</p>
+      <ul>
+        <li>Is illegal, defamatory, or violates any third party's rights</li>
+        <li>Contains sexually explicit material involving minors</li>
+        <li>Promotes violence, hatred, or discrimination</li>
+        <li>Infringes on copyrights, trademarks, or other intellectual property</li>
+      </ul>
+
+      <h4>5. Disclaimer of Warranties</h4>
+      <p>The Service is provided "as is" without warranties of any kind. We do not guarantee that the Service will be uninterrupted, error-free, or produce perfect results at all times. AI outputs may occasionally be imperfect — always review results before professional use.</p>
+
+      <h4>6. Limitation of Liability</h4>
+      <p>To the maximum extent permitted by law, Flarixo AI shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the Service, including loss of data or business interruption.</p>
+
+      <h4>7. Availability &amp; Changes</h4>
+      <p>We reserve the right to modify, suspend, or discontinue any part of the Service at any time without notice. We are not liable for any unavailability or changes to features.</p>
+
+      <h4>8. Governing Law</h4>
+      <p>These Terms are governed by applicable law. Any disputes arising from use of the Service shall be resolved through binding arbitration or the courts of the applicable jurisdiction.</p>
+
+      <h4><a href="/contact"> Contact </a></h4>
+      <p>For questions about these Terms: <a href="/contact" style="color:#a78bfa;">legal@flarixo.ai</a></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  /* ── HAMBURGER ── */
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileNav = document.getElementById('mobileNav');
+
+  hamburgerBtn.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.toggle('open');
+    hamburgerBtn.setAttribute('aria-expanded', isOpen);
+  });
+
+  function closeMobileNav() {
+    mobileNav.classList.remove('open');
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
+  }
+
+  /* ── SCROLL ANIMATIONS ── */
+  const cards = document.querySelectorAll('.tool-card');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  cards.forEach(card => observer.observe(card));
+
+  /* ── SEARCH ── */
+  const searchInput = document.getElementById('searchInput');
+  const toolCards = document.querySelectorAll('.tool-card[data-name]');
+  const noResults = document.getElementById('no-results');
+  const searchQuerySpan = document.getElementById('searchQuery');
+
+  const normalize = text => text.toLowerCase().replace(/[\s\-_()[\]{}.]/g, '');
+
+  searchInput.addEventListener('input', () => {
+    const query = normalize(searchInput.value);
+    let visibleCount = 0;
+
+    toolCards.forEach(card => {
+      const name = normalize(card.dataset.name || '');
+      const desc = normalize(card.querySelector('.tool-desc')?.textContent || '');
+      const match = !query || name.includes(query) || desc.includes(query);
+      card.classList.toggle('hidden-tool', !match);
+      if (match) visibleCount++;
+    });
+
+    noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    searchQuerySpan.textContent = searchInput.value;
+  });
+
+  /* ── FAQ ── */
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+
+      document.querySelectorAll('.faq-item.open').forEach(open => {
+        open.classList.remove('open');
+        open.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  /* ── MODALS ── */
+  function openModal(id) {
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  ['openPrivacy', 'openPrivacy2'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('click', (e) => { e.preventDefault(); openModal('privacyModal'); });
+  });
+
+  ['openTerms', 'openTerms2'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('click', (e) => { e.preventDefault(); openModal('termsModal'); });
+  });
+
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeModal(overlay.id);
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.open').forEach(m => closeModal(m.id));
+      closeMobileNav();
+    }
+  });
+
+  /* ── HEADER SCROLL EFFECT ── */
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    header.style.background = window.scrollY > 50
+      ? 'rgba(9,9,15,0.95)'
+      : 'rgba(9,9,15,0.82)';
+  }, { passive: true });
+
+  /* ══════════════════════════════════════════
+     AUTH — header + card guard
+  ══════════════════════════════════════════ */
+  (function () {
+    const TOKEN_KEYS = ['token', 'access_token'];
+
+    function getToken() {
+      for (const k of TOKEN_KEYS) {
+        const v = localStorage.getItem(k);
+        if (v) return v;
+      }
+      return null;
+    }
+        function getUserName() {
+      // 1. auth_user is stored at login with the full username from the server
+      try {
+        const u = JSON.parse(localStorage.getItem('auth_user') || '{}');
+        if (u.username) return u.username.trim();
+      } catch (_) {}
+      // 2. Legacy fallback keys
+      let name = '';
+      const raw = localStorage.getItem('user') || localStorage.getItem('username') || '';
+      try { name = JSON.parse(raw).name || JSON.parse(raw).username || ''; } catch { name = raw; }
+      if (name) return name.trim();
+      // 3. Decode JWT as last resort
+      const t = getToken();
+      if (t) {
+        try {
+          const p = JSON.parse(atob(t.split('.')[1]));
+          name = p.name || p.username || (p.email ? p.email.split('@')[0] : '');
+        } catch {}
+      }
+      return (name || 'User').trim();
+    }
+
+    const token = getToken();
+
+    /* ── Update header ── */
+    if (token) {
+      const name    = getUserName();
+      const initial = name.charAt(0).toUpperCase();
+
+      // Hide sign-in button (desktop + mobile nav)
+      document.querySelectorAll('#headerSignIn, .mobile-nav .btn-login').forEach(el => {
+        el.style.display = 'none';
+      });
+
+      // Show user chip + sign-out
+      const chip     = document.getElementById('userChip');
+      const avatar   = document.getElementById('userAvatar');
+      const chipName = document.getElementById('userChipName');
+      const signOut  = document.getElementById('btnSignOut');
+
+      if (chip)     chip.classList.add('visible');
+      if (avatar)   avatar.textContent = initial;
+      if (chipName) chipName.textContent = name.split(' ')[0];
+      if (signOut)  signOut.classList.add('visible');
+    }
+
+    /* ── Sign-out function (auth.js also sets window.signOut — this is the fallback) ── */
+    window.signOut = function () {
+      ['token','access_token','auth_user','user','username'].forEach(k => localStorage.removeItem(k));
+      fetch('/logout', { method: 'POST', credentials: 'include' }).catch(() => {});
+      window.location.href = '/loginSystem';
+    };
+
+    /* ══════════════════════════════════════
+       Make entire tool card clickable
+       + auth guard: if not logged in → /loginSystem
+    ══════════════════════════════════════ */
+    const grid = document.getElementById('toolGrid');
+    if (grid) {
+      grid.addEventListener('click', function (e) {
+        // Ignore clicks on FAQ/modal triggers or non-card elements
+        const card = e.target.closest('.tool-card');
+        if (!card) return;
+
+        // Don't hijack right-click / ctrl+click / modifier keys
+        if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey) return;
+
+        e.preventDefault();
+
+        const link = card.querySelector('.tool-link, a[href]');
+        const href = link ? link.getAttribute('href') : null;
+        if (!href) return;
+
+        const currentToken = getToken();
+        if (!currentToken) {
+          // Save intended destination so login can redirect back
+          sessionStorage.setItem('loginRedirect', href);
+          window.location.href = '/loginSystem';
+        } else {
+          window.location.href = href;
+        }
+      });
+
+      // Make the card look fully clickable (cursor pointer already set in CSS)
+      // Prevent the inner <a> from double-navigating — handled by parent delegation
+      grid.querySelectorAll('.tool-link').forEach(a => {
+        a.addEventListener('click', e => e.preventDefault());
+      });
+    }
+  })();
+</script>
+<script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+</body>
+</html>

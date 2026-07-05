@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forgot Password | Flarixo AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent:   #7C3AED;
+      --accent2:  #06B6D4;
+      --bg:       #09090f;
+      --bg2:      #0f0f1a;
+      --surface:  #13131f;
+      --surface2: #1a1a2e;
+      --border:   rgba(255,255,255,0.07);
+      --text:     #f1f5f9;
+      --text2:    #94a3b8;
+      --text3:    #64748b;
+      --success:  #10b981;
+      --danger:   #f87171;
+    }
+
+    html, body { height: 100%; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── BACKGROUND ORBS ── */
+    .orb {
+      position: fixed; border-radius: 50%;
+      pointer-events: none; z-index: 0; filter: blur(90px);
+    }
+    .orb1 { width: 520px; height: 520px; top: -160px; left: -160px;
+             background: radial-gradient(circle,rgba(124,58,237,0.16),transparent 70%); }
+    .orb2 { width: 420px; height: 420px; bottom: -120px; right: -100px;
+             background: radial-gradient(circle,rgba(6,182,212,0.12),transparent 70%); }
+
+    /* ── HEADER ── */
+    header {
+      position: relative; z-index: 10;
+      padding: 20px 36px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 800;
+      background: linear-gradient(135deg,#a78bfa,#06b6d4);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; text-decoration: none; letter-spacing: -0.5px;
+    }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--text3); font-size: 0.82rem; font-weight: 500;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .back-link svg { transition: transform 0.2s; }
+    .back-link:hover { color: var(--text2); }
+    .back-link:hover svg { transform: translateX(-3px); }
+
+    /* ── MAIN LAYOUT ── */
+    main {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      padding: 40px 20px 60px;
+      position: relative; z-index: 1;
+    }
+
+    /* ── CARD ── */
+    .card {
+      width: 100%; max-width: 440px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 44px 40px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── ICON ── */
+    .card-icon {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg,rgba(124,58,237,0.2),rgba(6,182,212,0.1));
+      border: 1px solid rgba(124,58,237,0.25);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px;
+    }
+    .card-icon svg { color: #a78bfa; }
+
+    .card h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.55rem; font-weight: 800; letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+    .card p.subtitle {
+      color: var(--text2); font-size: 0.88rem; line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
+    /* ── FORM ── */
+    .field {
+      margin-bottom: 18px;
+    }
+    .field label {
+      display: block; font-size: 0.78rem; font-weight: 600;
+      color: var(--text2); text-transform: uppercase; letter-spacing: 0.06em;
+      margin-bottom: 7px;
+    }
+    .input-wrap {
+      position: relative; display: flex; align-items: center;
+    }
+    .input-wrap svg {
+      position: absolute; left: 14px; color: var(--text3);
+      pointer-events: none; flex-shrink: 0;
+    }
+    .input-wrap input {
+      width: 100%;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      padding: 12px 14px 12px 40px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .input-wrap input::placeholder { color: var(--text3); }
+    .input-wrap input:focus {
+      border-color: rgba(124,58,237,0.5);
+      box-shadow: 0 0 0 3px rgba(124,58,237,0.1);
+    }
+    .input-wrap input.error {
+      border-color: rgba(248,113,113,0.5);
+      box-shadow: 0 0 0 3px rgba(248,113,113,0.08);
+    }
+
+    /* ── SUBMIT BUTTON ── */
+    .btn-submit {
+      width: 100%; padding: 13px;
+      background: linear-gradient(135deg,#7c3aed,#06b6d4);
+      border: none; border-radius: 11px;
+      color: #fff; font-family: 'Inter', sans-serif;
+      font-size: 0.95rem; font-weight: 600;
+      cursor: pointer; margin-top: 8px;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 28px rgba(124,58,237,0.3);
+    }
+    .btn-submit:hover:not(:disabled) {
+      opacity: 0.9; transform: translateY(-2px);
+      box-shadow: 0 6px 36px rgba(124,58,237,0.45);
+    }
+    .btn-submit:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+
+    /* ── SPINNER ── */
+    .spinner {
+      width: 16px; height: 16px; border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: #fff; border-radius: 50%;
+      animation: spin 0.7s linear infinite; display: none;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── FOOTER LINK ── */
+    .form-footer {
+      text-align: center; margin-top: 24px;
+      font-size: 0.82rem; color: var(--text3);
+    }
+    .form-footer a {
+      color: #a78bfa; text-decoration: none; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .form-footer a:hover { color: #c4b5fd; }
+
+    /* ── SUCCESS STATE ── */
+    .success-state {
+      display: none; text-align: center;
+      animation: fadeUp 0.5s ease both;
+    }
+    .success-icon {
+      width: 64px; height: 64px; margin: 0 auto 20px;
+      background: linear-gradient(135deg,rgba(16,185,129,0.18),rgba(6,182,212,0.1));
+      border: 1px solid rgba(16,185,129,0.3);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .success-icon svg { color: #34d399; }
+    .success-state h2 {
+      font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .success-state p { color: var(--text2); font-size: 0.88rem; line-height: 1.6; margin-bottom: 28px; }
+    .success-state .email-highlight {
+      color: #a78bfa; font-weight: 600;
+    }
+    .btn-back-login {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 10px; color: var(--text2);
+      font-family: 'Inter', sans-serif; font-size: 0.88rem; font-weight: 500;
+      padding: 11px 22px; text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-back-login:hover { border-color: rgba(124,58,237,0.35); color: var(--text); }
+
+    /* ── TOAST ── */
+    #toastContainer {
+      position: fixed; bottom: 24px; right: 24px; z-index: 1000;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .toast {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 12px 16px;
+      font-size: 0.84rem; font-weight: 500;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+      animation: toastIn 0.3s ease both;
+      max-width: 320px;
+    }
+    .toast.toast-success { border-color: rgba(16,185,129,0.35); }
+    .toast.toast-success .toast-dot { background: #10b981; }
+    .toast.toast-error   { border-color: rgba(248,113,113,0.35); }
+    .toast.toast-error   .toast-dot { background: #f87171; }
+    .toast-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    @keyframes toastIn {
+      from { opacity: 0; transform: translateX(20px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative; z-index: 1;
+      text-align: center; padding: 20px;
+      font-size: 0.75rem; color: var(--text3);
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--text3); text-decoration: none; }
+    footer a:hover { color: var(--text2); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 480px) {
+      header { padding: 16px 20px; }
+      .card { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background orbs -->
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+
+  <!-- Header -->
+  <header>
+    <a href="/" class="logo">Flarixo AI</a>
+    <a href="/loginSystem" class="back-link">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back to login
+    </a>
+  </header>
+
+  <!-- Main -->
+  <main>
+    <div class="card">
+
+      <!-- Default state: the form -->
+      <div id="formState">
+        <div class="card-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </div>
+
+        <h1>Forgot password?</h1>
+        <p class="subtitle">No worries. Enter your email and we'll send you a link to reset your password.</p>
+
+        <form id="forgotForm" novalidate>
+          <div class="field">
+            <label for="forgotEmail">Email address</label>
+            <div class="input-wrap">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              <input
+                type="email" id="forgotEmail"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required
+              >
+            </div>
+          </div>
+
+          <button class="btn-submit" type="submit" id="resetBtn">
+            <div class="spinner" id="spinner"></div>
+            <span id="btnText">Send reset link</span>
+            <svg id="btnArrow" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </form>
+
+        <div class="form-footer">
+          Remembered it? <a href="/loginSystem">Sign in</a>
+        </div>
+      </div>
+
+      <!-- Success state -->
+      <div class="success-state" id="successState">
+        <div class="success-icon">
+          <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <h2>Check your inbox</h2>
+        <p>We've sent a password reset link to<br><span class="email-highlight" id="sentEmail">—</span></p>
+        <p style="margin-top:8px;">If it doesn't appear in a few minutes, check your spam folder.</p>
+        <a href="/loginSystem" class="btn-back-login" style="margin-top:8px;">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+          Back to login
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 <a href="/">Flarixo AI</a>. All rights reserved.
+  </footer>
+
+  <!-- Toast container -->
+  <div id="toastContainer"></div>
+
+  <script>
+    // ── TOAST ──
+    function showToast(msg, type = 'success') {
+      const tc = document.getElementById('toastContainer');
+      const t = document.createElement('div');
+      t.className = `toast toast-${type}`;
+      t.innerHTML = `<div class="toast-dot"></div><span>${msg}</span>`;
+      tc.appendChild(t);
+      setTimeout(() => { t.style.opacity = '0'; t.style.transform = 'translateX(20px)'; t.style.transition = '0.3s'; setTimeout(() => t.remove(), 300); }, 4000);
+    }
+
+    // ── FORM ──
+    document.getElementById('forgotForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const emailEl  = document.getElementById('forgotEmail');
+      const resetBtn = document.getElementById('resetBtn');
+      const spinner  = document.getElementById('spinner');
+      const btnText  = document.getElementById('btnText');
+      const btnArrow = document.getElementById('btnArrow');
+      const email    = emailEl.value.trim();
+
+      emailEl.classList.remove('error');
+
+      if (!email) {
+        emailEl.classList.add('error');
+        showToast('Please enter your email address.', 'error');
+        emailEl.focus();
+        return;
+      }
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        emailEl.classList.add('error');
+        showToast('Please enter a valid email address.', 'error');
+        emailEl.focus();
+        return;
+      }
+
+      // Loading state
+      resetBtn.disabled = true;
+      spinner.style.display = 'block';
+      btnText.textContent = 'Sending…';
+      btnArrow.style.display = 'none';
+
+      try {
+        const res  = await fetch('/forgot-password', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          showToast(data.error || 'Unable to process request. Try again.', 'error');
+          return;
+        }
+
+        // Show success state
+        document.getElementById('sentEmail').textContent = email;
+        document.getElementById('formState').style.display    = 'none';
+        document.getElementById('successState').style.display = 'block';
+
+      } catch (err) {
+        console.error(err);
+        showToast('Server not responding. Please try again later.', 'error');
+      } finally {
+        resetBtn.disabled = false;
+        spinner.style.display = 'none';
+        btnText.textContent = 'Send reset link';
+        btnArrow.style.display = '';
+      }
+    });
+  </script>
+</body>
+</html>

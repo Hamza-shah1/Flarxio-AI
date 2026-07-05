@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Flarixo AI</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      background: #111;
+      color: white;
+      padding: 15px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 { margin: 0; font-size: 24px; color: #f39c12; }
+    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+    nav a:hover { color: #ff6f61; }
+
+    /* Contact Section */
+    .contact-container {
+      max-width: 680px;
+      margin: 50px auto;
+      padding: 36px 40px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+    .contact-container h2 {
+      text-align: center;
+      margin-bottom: 24px;
+      color: #ff6f61;
+      font-size: 26px;
+    }
+
+    form { display: flex; flex-direction: column; gap: 16px; }
+
+    input, textarea {
+      padding: 12px 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      font-family: inherit;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #ff6f61;
+      box-shadow: 0 0 0 3px rgba(255,111,97,0.15);
+    }
+    textarea { resize: vertical; min-height: 130px; }
+
+    button[type="submit"] {
+      background: #ff6f61;
+      color: white;
+      padding: 13px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.25s, opacity 0.2s;
+    }
+    button[type="submit"]:hover:not(:disabled) { background: #e0554a; }
+    button[type="submit"]:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    /* Feedback banner */
+    #contact-feedback {
+      display: none;
+      padding: 14px 16px;
+      border-radius: 6px;
+      font-size: 15px;
+      text-align: center;
+      font-weight: 500;
+    }
+    #contact-feedback.success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    #contact-feedback.error {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+
+    /* Map */
+    .map { margin: 40px auto; max-width: 900px; padding: 0 20px; }
+    .map iframe { width: 100%; height: 350px; border: none; border-radius: 10px; }
+
+    /* Footer */
+    footer {
+      background: #111;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      margin-top: 50px;
+    }
+    footer a { color: #ff6f61; margin: 0 10px; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Flarixo AI</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/tools">Tools</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Contact Section -->
+  <div class="contact-container">
+    <h2>Contact Us</h2>
+
+    <div id="contact-feedback" role="alert"></div>
+
+    <form id="contactForm" novalidate>
+      <input
+        type="text"
+        id="contactName"
+        name="name"
+        placeholder="Your Name"
+        required
+        maxlength="120"
+        autocomplete="name"
+      >
+      <input
+        type="email"
+        id="contactEmail"
+        name="email"
+        placeholder="Your Email"
+        required
+        maxlength="255"
+        autocomplete="email"
+      >
+      <textarea
+        id="contactMessage"
+        name="message"
+        placeholder="Your Message"
+        required
+        maxlength="5000"
+      ></textarea>
+      <button type="submit" id="submitBtn">Send Message</button>
+    </form>
+  </div>
+
+  <!-- Map -->
+  <div class="map">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.478305243508!2d67.05958381499947!3d24.8607349840597!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33e9b12dbcd19%3A0xf6c9c2cafe432327!2sKarachi%20Pakistan!5e0!3m2!1sen!2s!4v1633367931164!5m2!1sen!2s"
+      allowfullscreen=""
+      loading="lazy"
+      title="Location map"
+    ></iframe>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Flarixo AI. All Rights Reserved.</p>
+    <p style="margin-top:8px;">
+      <a href="#">Facebook</a> |
+      <a href="#">Twitter</a> |
+      <a href="#">LinkedIn</a>
+    </p>
+  </footer>
+
+  <script>
+    const form       = document.getElementById('contactForm');
+    const feedback   = document.getElementById('contact-feedback');
+    const submitBtn  = document.getElementById('submitBtn');
+
+    function showFeedback(msg, type) {
+      feedback.textContent = msg;
+      feedback.className   = type;   // 'success' or 'error'
+      feedback.style.display = 'block';
+      feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function hideFeedback() {
+      feedback.style.display = 'none';
+      feedback.textContent   = '';
+    }
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      hideFeedback();
+
+      const name    = document.getElementById('contactName').value.trim();
+      const email   = document.getElementById('contactEmail').value.trim();
+      const message = document.getElementById('contactMessage').value.trim();
+
+      // Client-side guard (server validates too)
+      if (!name || !email || !message) {
+        showFeedback('Please fill in all fields.', 'error');
+        return;
+      }
+
+      submitBtn.disabled    = true;
+      submitBtn.textContent = 'Sending…';
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, message }),
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          showFeedback(
+            data.message || 'Your message has been sent! We will get back to you soon.',
+            'success'
+          );
+          form.reset();
+        } else {
+          showFeedback(
+            data.error || 'Something went wrong. Please try again.',
+            'error'
+          );
+        }
+      } catch (err) {
+        showFeedback(
+          'Network error — please check your connection and try again.',
+          'error'
+        );
+      } finally {
+        submitBtn.disabled    = false;
+        submitBtn.textContent = 'Send Message';
+      }
+    });
+  </script>
+
+</body>
+</html>

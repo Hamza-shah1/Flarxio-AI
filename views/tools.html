@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tools – Flarixo AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --accent: #7C3AED;
+      --accent2: #06B6D4;
+      --accent-glow: rgba(124,58,237,0.18);
+      --bg: #09090f;
+      --bg2: #111118;
+      --bg3: #18181f;
+      --surface: #1f1f2a;
+      --surface2: #252533;
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(124,58,237,0.45);
+      --text: #f0f0f8;
+      --text2: #a0a0b8;
+      --text3: #6b6b84;
+      --radius: 14px;
+      --radius-sm: 8px;
+      --header-h: 68px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--header-h);
+      background: rgba(9,9,15,0.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #a78bfa, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex: 1;
+      justify-content: center;
+    }
+    nav a {
+      color: var(--text2);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 7px 14px;
+      border-radius: var(--radius-sm);
+      transition: color 0.2s, background 0.2s;
+    }
+    nav a:hover, nav a.active { color: var(--text); background: var(--surface); }
+    nav a.active { color: #a78bfa; }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .search-wrap { position: relative; }
+    .search-wrap svg {
+      position: absolute; left: 11px; top: 50%;
+      transform: translateY(-50%); color: var(--text3); pointer-events: none;
+    }
+    .search-bar {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 9px 12px 9px 34px;
+      color: var(--text);
+      font-size: 0.84rem;
+      font-family: 'Inter', sans-serif;
+      width: 200px; outline: none;
+      transition: border-color 0.2s, width 0.3s, background 0.2s;
+    }
+    .search-bar::placeholder { color: var(--text3); }
+    .search-bar:focus {
+      border-color: var(--accent); background: var(--surface2);
+      width: 250px; box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+    .btn-login {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: linear-gradient(135deg,#7c3aed,#06b6d4);
+      color: #fff; text-decoration: none;
+      font-size: 0.84rem; font-weight: 600;
+      padding: 9px 18px; border-radius: 9px;
+      transition: opacity 0.2s, transform 0.2s; white-space: nowrap;
+    }
+    .btn-login:hover { opacity: 0.88; transform: translateY(-1px); }
+    .hamburger {
+      display: none; background: none;
+      border: 1px solid var(--border); border-radius: 8px;
+      padding: 8px; cursor: pointer; color: var(--text);
+    }
+    .mobile-nav {
+      display: none; position: fixed;
+      top: var(--header-h); left: 0; right: 0;
+      background: rgba(9,9,15,0.97); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px 24px; z-index: 999;
+      flex-direction: column; gap: 6px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      color: var(--text2); text-decoration: none;
+      font-size: 1rem; font-weight: 500;
+      padding: 12px 0; border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+    .mobile-nav a:hover { color: var(--text); }
+    .mobile-nav .btn-login { margin-top: 8px; justify-content: center; }
+
+    /* ── HERO ── */
+    .tools-hero {
+      min-height: 320px;
+      padding-top: calc(var(--header-h) + 80px);
+      padding-bottom: 70px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-orb {
+      position: absolute; border-radius: 50%;
+      filter: blur(100px); pointer-events: none;
+    }
+    .orb1 {
+      width: 500px; height: 500px;
+      background: rgba(124,58,237,0.2);
+      top: -120px; left: -120px;
+      animation: float1 12s ease-in-out infinite;
+    }
+    .orb2 {
+      width: 400px; height: 400px;
+      background: rgba(6,182,212,0.15);
+      bottom: -80px; right: -80px;
+      animation: float2 14s ease-in-out infinite;
+    }
+    @keyframes float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(35px,25px)} }
+    @keyframes float2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-25px,15px)} }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(124,58,237,0.12);
+      border: 1px solid rgba(124,58,237,0.35);
+      color: #c4b5fd; font-size: 0.78rem; font-weight: 600;
+      padding: 6px 16px; border-radius: 50px;
+      margin-bottom: 24px; letter-spacing: 0.06em; text-transform: uppercase;
+      animation: fadeSlideDown 0.8s ease forwards; opacity: 0;
+    }
+    .badge-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #7c3aed; animation: pulse 2s ease infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+
+    .tools-hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 800; line-height: 1.1;
+      letter-spacing: -1.5px; margin-bottom: 18px;
+      opacity: 0; animation: fadeSlideDown 0.9s ease 0.15s forwards;
+    }
+    .tools-hero h1 .grad {
+      background: linear-gradient(135deg,#a78bfa 0%,#06b6d4 55%,#a78bfa 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; animation: shimmer 4s linear infinite;
+    }
+    @keyframes shimmer { to{background-position:200% center} }
+    .tools-hero p {
+      max-width: 520px; font-size: 1.05rem; color: var(--text2);
+      margin: 0 auto 36px; line-height: 1.75;
+      opacity: 0; animation: fadeSlideUp 0.9s ease 0.3s forwards;
+    }
+
+    /* ── FILTER TABS ── */
+    .filter-bar {
+      display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
+      margin-bottom: 52px;
+      opacity: 0; animation: fadeSlideUp 0.9s ease 0.45s forwards;
+    }
+    .filter-btn {
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--text2); font-family: 'Inter', sans-serif;
+      font-size: 0.82rem; font-weight: 600; padding: 8px 18px;
+      border-radius: 50px; cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: rgba(124,58,237,0.18); border-color: rgba(124,58,237,0.5);
+      color: #c4b5fd;
+    }
+
+    /* ── SECTION ── */
+    .section {
+      padding: 70px 24px 100px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-label {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: #a78bfa; margin-bottom: 16px;
+    }
+    .section-label::before {
+      content: ''; display: block; width: 18px; height: 2px;
+      background: linear-gradient(90deg,#7c3aed,#06b6d4); border-radius: 2px;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+      font-weight: 800; line-height: 1.15;
+      letter-spacing: -1px; margin-bottom: 10px;
+    }
+    .section-sub {
+      font-size: 0.95rem; color: var(--text2); max-width: 480px; margin-bottom: 48px;
+    }
+
+    /* ── TOOL GRID ── */
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 18px;
+    }
+    .tool-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 26px;
+      display: flex; flex-direction: column; gap: 10px;
+      position: relative; overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      opacity: 0; transform: translateY(30px);
+      cursor: pointer; text-decoration: none;
+    }
+    .tool-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg,rgba(124,58,237,0.06),transparent 60%);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .tool-card:hover {
+      border-color: var(--border-hover); transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(124,58,237,0.18);
+    }
+    .tool-card:hover::before { opacity: 1; }
+    .tool-card.visible { opacity: 1; transform: translateY(0); transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.3s, box-shadow 0.3s; }
+
+    .tool-icon {
+      width: 46px; height: 46px; border-radius: 12px;
+      background: rgba(124,58,237,0.14);
+      border: 1px solid rgba(124,58,237,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.25rem; flex-shrink: 0;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .tool-card:hover .tool-icon {
+      background: rgba(124,58,237,0.25);
+      border-color: rgba(124,58,237,0.5);
+    }
+    .tool-name {
+      font-size: 1rem; font-weight: 700; color: var(--text); line-height: 1.3;
+    }
+    .tool-desc {
+      font-size: 0.84rem; color: var(--text2); line-height: 1.6; flex: 1;
+    }
+    .tool-tag {
+      display: inline-block; font-size: 0.7rem; font-weight: 600;
+      padding: 2px 8px; border-radius: 4px;
+      background: rgba(6,182,212,0.1); color: #67e8f9;
+      border: 1px solid rgba(6,182,212,0.2); width: fit-content;
+      text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    .tool-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #a78bfa; font-size: 0.83rem; font-weight: 600;
+      text-decoration: none; margin-top: 4px;
+      transition: gap 0.2s, color 0.2s;
+    }
+    .tool-link:hover { color: #06b6d4; gap: 10px; }
+
+    /* ── EMPTY STATE ── */
+    .empty-state {
+      display: none; flex-direction: column; align-items: center;
+      gap: 12px; padding: 80px 24px; text-align: center;
+    }
+    .empty-state.show { display: flex; }
+    .empty-state-icon {
+      width: 64px; height: 64px; border-radius: 16px;
+      background: var(--surface); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+    }
+    .empty-state h3 { font-size: 1.1rem; font-weight: 700; }
+    .empty-state p { font-size: 0.88rem; color: var(--text2); }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      display: flex; gap: 0; margin-bottom: 52px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden;
+      opacity: 0; animation: fadeSlideUp 0.9s ease 0.55s forwards;
+    }
+    .stat-item {
+      flex: 1; padding: 18px 20px; text-align: center;
+      border-right: 1px solid var(--border); position: relative;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800;
+      background: linear-gradient(135deg,#a78bfa,#06b6d4);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; display: block; line-height: 1.2;
+    }
+    .stat-label { font-size: 0.72rem; color: var(--text3); font-weight: 500; text-transform: uppercase; letter-spacing: 0.07em; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg2); border-top: 1px solid var(--border);
+      padding: 32px 24px; text-align: center;
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo {
+      font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 800;
+      background: linear-gradient(135deg, #a78bfa, #06b6d4);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; text-decoration: none;
+    }
+    .footer-copy { font-size: 0.82rem; color: var(--text3); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 0.82rem; color: var(--text3); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text2); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeSlideDown {
+      from { opacity:0; transform:translateY(-22px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    @keyframes fadeSlideUp {
+      from { opacity:0; transform:translateY(22px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    /* ── USER CHIP ── */
+    .user-chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 50px; padding: 5px 14px 5px 5px;
+      font-size: 0.82rem; font-weight: 500; color: var(--text2);
+      text-decoration: none; transition: border-color 0.2s;
+    }
+    .user-chip:hover { border-color: rgba(124,58,237,0.4); }
+    .user-avatar {
+      width: 26px; height: 26px; border-radius: 50%;
+      background: linear-gradient(135deg,#7c3aed,#06b6d4);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.72rem; font-weight: 700; color: #fff; flex-shrink: 0;
+    }
+    .btn-logout {
+      background: none; border: 1px solid var(--border); border-radius: 8px;
+      color: var(--text3); font-family: 'Inter', sans-serif; font-size: 0.8rem;
+      font-weight: 500; padding: 7px 13px; cursor: pointer;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+    .btn-logout:hover { color: #f87171; border-color: rgba(248,113,113,0.4); background: rgba(248,113,113,0.06); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .header-actions .search-wrap { display: none; }
+      .hamburger { display: flex; }
+      .tool-grid { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .stats-bar { flex-wrap: wrap; }
+      .stat-item { min-width: 45%; border-bottom: 1px solid var(--border); }
+    }
+
+    @media (max-width: 390px) {
+      .header-inner { padding: 0 16px; gap: 80px; }
+    }
+    @media (max-width: 380px) {
+        .header-inner { padding: 0 16px; gap: 10px; }
+    }
+    @media (max-width: 360px) {
+       .header-inner { padding: 0 16px; gap: 50px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo">Flarixo AI</a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/tools" class="active">Tools</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <div class="search-wrap">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input class="search-bar" id="searchInput" type="text" placeholder="Search tools…" oninput="filterTools(this.value)">
+        </div>
+        <div class="user-chip" id="userChip">
+          <div class="user-avatar" id="userAvatar">?</div>
+          <span id="userChipName">Loading…</span>
+        </div>
+        <button class="btn-logout" onclick="logout()">Sign out</button>
+        <button class="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="/">Home</a>
+    <a href="/tools">Tools</a>
+    <a href="/pricing">Pricing</a>
+    <a href="/contact">Contact</a>
+    <a href="/loginSystem" class="btn-login">Sign In</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="tools-hero">
+    <div class="hero-orb orb1"></div>
+    <div class="hero-orb orb2"></div>
+
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      <span id="heroBadgeText">Welcome back</span>
+    </div>
+    <h1>Your <span class="grad">AI Toolkit</span></h1>
+    <p>Pick a tool and get to work. Everything you need, all in one place.</p>
+
+    <!-- Stats bar -->
+    <div class="stats-bar">
+      <div class="stat-item">
+        <span class="stat-num">12</span>
+        <span class="stat-label">AI Tools</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">Free</span>
+        <span class="stat-label">Always</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">100%</span>
+        <span class="stat-label">Private</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">Instant</span>
+        <span class="stat-label">Results</span>
+      </div>
+    </div>
+
+    <!-- Filter tabs -->
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-btn active" onclick="setFilter('all', this)">All Tools</button>
+      <button class="filter-btn" onclick="setFilter('image', this)"><i class="fa-solid fa-file-pen"  style="color: white;"></i>Image</button>
+      <button class="filter-btn" onclick="setFilter('document', this)"><i class="fa-solid fa-file-word"  style="color: white;"></i> Document</button>
+      <button class="filter-btn" onclick="setFilter('audio', this)"><i class="fa-solid fa-microphone-lines"  style="color: white;"></i> Audio</button>
+      <button class="filter-btn" onclick="setFilter('utility', this)"><i class="fa-solid fa-link "  style="color: white;"></i> Utility</button>
+    </div>
+  </section>
+
+  <!-- Tools Grid -->
+  <section class="section">
+    <div class="section-label">Tools</div>
+    <h2 class="section-title">Explore Everything</h2>
+    <p class="section-sub">Pick a tool and get started instantly — no account needed.</p>
+
+    <div class="tool-grid" id="toolGrid">
+
+      <a href="/bac-rem-tool" class="tool-card" data-category="image" data-name="Background Removal">
+        <i class="fa-solid fa-scissors tool-icon"  style="color: white;"></i>
+        <div class="tool-tag">Image</div>
+        <div class="tool-name">Background Removal</div>
+        <div class="tool-desc">Remove image backgrounds instantly with AI precision. Works on people, products, and objects.</div>
+        <span class="tool-link">Use now <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a href="/image-enhancement" class="tool-card" data-category="image" data-name="Image Enhancement">
+         <i class="fa-solid fa-wand-magic-sparkles tool-icon"  style="color: white;"></i>
+        <div class="tool-tag">Image</div>
+        <div class="tool-name">Image Enhancement</div>
+        <div class="tool-desc">Sharpen, color-correct, and restore photos with a single click using AI upscaling.</div>
+        <span class="tool-link">Use now <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a href="/image-converter" class="tool-card" data-category="image" data-name="Image Converter">
+        <i class="fa-solid fa-right-left tool-icon"  style="color: white;"></i>
+        <div class="tool-tag">Image</div>
+        <div class="tool-name">Image Converter</div>
+        <div class="tool-desc">Convert images between JPG, PNG, WebP, and more formats instantly.</div>
+        <span class="tool-link">Use now <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a href="/file-compression" class="tool-card" data-category="utility" data-name="File Compression">
+        <i class="fa-solid fa-compress tool-icon"  style="color: white;"></i>
+        <div class="tool-tag">Utility</div>
+        <div class="tool-name">File Compression</div>
+        <div class="tool-desc">Compress videos and files without losing quality. Reduce size up to 80%.</div>
+        <span class="tool-link">Use now <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a href="/noice-reduction" class="tool-card" data-category="audio" data-name="Noise Reduction">
+         <i class="fa-solid fa-wave-square tool-icon"  style="color: white;"></i>
+        <div class="tool-tag">Audio</div>
+        <div class="tool-name">Noise Reduction</div>
+        <div class="tool-desc">Remove background noise and enhance audio clarity for recordings and calls.</div>
+        <span class="tool-link">Use now <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a href="/image-to-text" class="tool-card" data-category="document" data-name="OCR Text Extraction">
+          <i class="fa-solid fa-file-lines tool-icon"  style="color: white;"></i>
+        <div class="tool-tag">Document</div>
+        <div class="tool-name">OCR Text Extraction</div>
+        <div class="tool-desc">Extract text from images in seconds — supports multiple languages with high accuracy.</div>
+        <span class="tool-link">Use now <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a href="/img-to-pdf" class="tool-card" data-category="document" data-name="Images to PDF">
+          <i class="fa-solid fa-file-circle-plus tool-icon"  style="color: white;"></i>
+        <div class="tool-tag">Document</div>
+        <div class="tool-name">Images to PDF</div>
+        <div class="tool-desc">Combine multiple images into a single, polished PDF file with one click.</div>
+        <span class="tool-link">Use now <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a href="/voice-to-text_page" class="tool-card" data-category="audio" data-name="Voice to Text">
+         <i class="fa-solid fa-microphone-lines tool-icon"  style="color: white;"></i>
+        <div class="tool-tag">Audio</div>
+        <div class="tool-name">Voice to Text</div>
+        <div class="tool-desc">Convert your voice into accurate written text instantly. Great for notes and transcripts.</div>
+        <span class="tool-link">Use now <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a href="/pdf-to-document" class="tool-card" data-category="document" data-name="PDF to DOCX">
+        <i class="fa-solid fa-file-word tool-icon"  style="color: white;"></i>
+        <div class="tool-tag">Document</div>
+        <div class="tool-name">PDF to DOCX</div>
+        <div class="tool-desc">Convert PDF files into fully editable Word documents in seconds. OCR supported.</div>
+        <span class="tool-link">Use now <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a href="/url-shortner" class="tool-card" data-category="utility" data-name="URL Shortener">
+         <i class="fa-solid fa-link tool-icon"  style="color: white;"></i>
+        <div class="tool-tag">Utility</div>
+        <div class="tool-name">URL Shortener</div>
+        <div class="tool-desc">Create short, trackable links with built-in analytics. Share smarter.</div>
+        <span class="tool-link">Use now <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a href="/pdf-edit-uploader" class="tool-card" data-category="document" data-name="PDF Image Editor">
+        <i class="fa-solid fa-file-pen tool-icon"  style="color: white;"></i>
+        <div class="tool-tag">Document</div>
+        <div class="tool-name">PDF Editor</div>
+        <div class="tool-desc"> Modify text, images, layouts, and elements with complete freedom. Edit, replace, remove, annotate, convert, and enhance PDFs in seconds.</div>
+        <span class="tool-link">Use now <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a href="/image-edit-uploader" class="tool-card" data-category="document" data-name="PDF Image Editor">
+        <i class="fa-solid fa-file-pen tool-icon"  style="color: white;"></i>
+        <div class="tool-tag">Document</div>
+        <div class="tool-name">Image Editor</div>
+        <div class="tool-desc"> Modify text, images, layouts, and elements with complete freedom. Edit, replace, remove, annotate, convert, and enhance images in seconds.</div>
+        <span class="tool-link">Use now <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+
+      <a href="/object-remover" class="tool-card" data-category="image" data-name="Object Remover">
+        <i class="fa-solid fa-scissors tool-icon" style="color: white;"></i>
+        <div class="tool-tag">Image</div>
+        <div class="tool-name">Object Remover</div>
+        <div class="tool-desc">Erase unwanted objects, people, or text from photos using AI inpainting.</div>
+        <span class="tool-link">Use now <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-state" id="emptyState">
+      <i class="fa-solid fa-magnifying-glass empty-state-icon"></i>
+      <h3>No tools found</h3>
+      <p>Try a different search term or browse all tools.</p>
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <a href="/" class="footer-logo">Flarixo AI</a>
+      <p class="footer-copy"><i class="fa-regular fa-copyright"></i> 2025 Flarixo AI. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/pricing">Pricing</a>
+        <a href="/contact">Contact</a>
+        <a href="/tools">Tools</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+  <script>
+    // ── USER GREETING ──
+    (function() {
+      const raw = localStorage.getItem('user') || localStorage.getItem('username') || '';
+      let name = '';
+      try { name = JSON.parse(raw).name || JSON.parse(raw).username || ''; } catch { name = raw; }
+      if (!name) {
+        const token = localStorage.getItem('token');
+        if (token) {
+          try {
+            const payload = JSON.parse(atob(token.split('.')[1]));
+            name = payload.name || payload.username || payload.email?.split('@')[0] || '';
+          } catch {}
+        }
+      }
+      name = name || 'User';
+      const initial = name.charAt(0).toUpperCase();
+      const chipName = document.getElementById('userChipName');
+      const avatar   = document.getElementById('userAvatar');
+      const badge    = document.getElementById('heroBadgeText');
+      if (chipName) chipName.textContent = name;
+      if (avatar)   avatar.textContent   = initial;
+      if (badge)    badge.textContent    = 'Welcome back, ' + name.split(' ')[0];
+    })();
+
+    // ── LOGOUT ──
+    function logout() {
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      localStorage.removeItem('username');
+      window.location.href = '/loginSystem';
+    }
+
+    // ── ANIMATE CARDS ON SCROLL ──
+    const cards = document.querySelectorAll('.tool-card');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 60);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    cards.forEach(c => observer.observe(c));
+
+    // ── MOBILE NAV ──
+    function toggleMobileNav() {
+      document.getElementById('mobileNav').classList.toggle('open');
+    }
+
+    // ── FILTER ──
+    let activeCategory = 'all';
+    function setFilter(cat, btn) {
+      activeCategory = cat;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyFilter();
+    }
+
+    function applyFilter() {
+      const q = (document.getElementById('searchInput').value || '').toLowerCase();
+      let visible = 0;
+      document.querySelectorAll('.tool-card').forEach(card => {
+        const matchCat = activeCategory === 'all' || card.dataset.category === activeCategory;
+        const matchSearch = !q || card.dataset.name.toLowerCase().includes(q) || card.querySelector('.tool-desc').textContent.toLowerCase().includes(q);
+        const show = matchCat && matchSearch;
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      document.getElementById('emptyState').classList.toggle('show', visible === 0);
+    }
+
+    function filterTools() { applyFilter(); }
+  </script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing - Flask AI Toolkit</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #0d1117;
+      color: #e6edf3;
+    }
+
+    header {
+      background: #161b22;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 22px;
+      color: #58a6ff;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #c9d1d9;
+      margin-left: 20px;
+      font-size: 15px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #58a6ff;
+    }
+
+    .pricing-section {
+      text-align: center;
+      padding: 70px 20px;
+    }
+
+    .pricing-section h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      color: #58a6ff;
+    }
+
+    .pricing-section p {
+      color: #8b949e;
+      margin-bottom: 50px;
+      font-size: 16px;
+    }
+
+    .pricing-cards {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 40px 25px;
+      width: 300px;
+      transition: transform 0.3s, border 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      border: 1px solid #58a6ff;
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 22px;
+      color: #e6edf3;
+    }
+
+    .price {
+      font-size: 28px;
+      margin: 15px 0;
+      color: #58a6ff;
+      font-weight: bold;
+    }
+
+    .features {
+      list-style: none;
+      padding: 0;
+      margin: 25px 0;
+      text-align: left;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .features li {
+      margin: 6px 0;
+      color: #c9d1d9;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      background: #238636;
+      color: white;
+      padding: 12px 22px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #2ea043;
+    }
+
+    footer {
+      background: #161b22;
+      color: #8b949e;
+      text-align: center;
+      padding: 25px;
+      margin-top: 70px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Flask AI Toolkit</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/tools">Tools</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="pricing-section">
+    <h2>Pricing Plans</h2>
+    <p>Flexible plans for individuals, creators, and enterprises.</p>
+
+    <div class="pricing-cards">
+      <!-- Free Plan -->
+      <div class="card">
+        <h3>Free</h3>
+        <p class="price">$0 / month</p>
+        <ul class="features">
+          <li>✔ Background Removal</li>
+          <li>✔ Text-to-Speech</li>
+          <li>✔ URL Shortener</li>
+          <li>✖ Limited API Calls</li>
+        </ul>
+        <a href="#" class="btn">Start Free</a>
+      </div>
+
+      <!-- Pro Plan -->
+      <div class="card">
+        <h3>Pro</h3>
+        <p class="price">$15 / month</p>
+        <ul class="features">
+          <li>✔ All Free Features</li>
+          <li>✔ OCR & PDF Tools</li>
+          <li>✔ Audio Enhancements</li>
+          <li>✔ 25 GB Cloud Storage</li>
+        </ul>
+        <a href="#" class="btn">Go Pro</a>
+      </div>
+
+      <!-- Enterprise Plan -->
+      <div class="card">
+        <h3>Enterprise</h3>
+        <p class="price">$45 / month</p>
+        <ul class="features">
+          <li>✔ All Pro Features</li>
+          <li>✔ Unlimited Usage</li>
+          <li>✔ Dedicated Support</li>
+          <li>✔ 100 GB Cloud Storage</li>
+        </ul>
+        <a href="#" class="btn">Go Enterprise</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Flask AI Toolkit. All rights reserved.</p>
+  </footer>
+<script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+</body>
+</html>
